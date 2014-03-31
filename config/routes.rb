@@ -1,5 +1,7 @@
 Luke::Application.routes.draw do
 
+  resources :doings
+
   devise_for :admins, :controllers => {:registrations => "admin/registrations",
    :sessions => "admin/sessions" }
 
@@ -11,7 +13,7 @@ Luke::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  root 'admin/users#index', as: :admin_root
+  match 'admin', to: 'admin/users#index', as: :admin, via: :all
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -59,5 +61,6 @@ Luke::Application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :doings
   end
 end
