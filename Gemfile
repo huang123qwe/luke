@@ -33,6 +33,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :assets do
+  gem 'jquery-ui-rails'
+  gem 'jquery_datepicker'
+  gem "simple_form"  
+end
+
+gem 'carrierwave'
+gem 'rmagick'
+gem 'mini_magick'
+
 gem 'devise'
 gem 'mina'
 
