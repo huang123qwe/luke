@@ -24,73 +24,24 @@
    </div>
 
     <div class="body_half">
-       <div id="focus"></div>
+     <div id="focus"></div>
 	   <img src="/assets/what.png" />
        <script type="text/javascript" src="/assets/swfobject.js"></script>
        <script type="text/javascript">
 				var pics = "";
 				var links = "";
 				var texts = ""; 
-
-				pics += "/assets/01.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/02.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/03.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/04.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/05.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/06.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/07.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/08.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/09.jpg";
-				links += "#nogo";
-				texts += "";
+				<% left_doings = Doing.where(position: "左下").all %>
+				<% left_doings.each_with_index do |doing,index| %>
+					pics += "<%= doing.cover_url(:normal) %>";
+					links += "#nogo";
+					texts += "";
+					<% if index < left_doings.size - 1 %>
+						pics += "|";
+						links += "|";
+						texts += "|";				
+					<% end %>
+				<% end %>
 
 				var so = new SWFObject("/assets/wheel.swf", "focus", "440", "220", "7", "#ffffff");
 				so.addParam('wmode','transparent');
@@ -111,69 +62,21 @@
 	   <img src="/assets/where.png" />
        <script type="text/javascript" src="/assets/swfobject.js"></script>
        <script type="text/javascript">
-	   var pics = "";
+	   		var pics = "";
 				var links = "";
 				var texts = ""; 
 
-				pics += "/assets/01.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/02.jpg";
-				links += "#nogo";
-				texts += "jquery 图片滚动";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/03.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/04.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/05.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/06.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/07.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/08.jpg";
-				links += "#nogo";
-				texts += "";
-				pics += "|";
-				links += "|";
-				texts += "|";
-
-				pics += "/assets/09.jpg";
-				links += "#nogo";
-				texts += "";
+				<% right_doings = Doing.where(position: "右下").all %>
+				<% right_doings.each_with_index do |doing,index| %>
+					pics += "<%= doing.cover_url(:normal) %>";
+					links += "#nogo";
+					texts += "";
+					<% if index < right_doings.size - 1 %>
+						pics += "|";
+						links += "|";
+						texts += "|";				
+					<% end %>
+				<% end %>
 
 				var so = new SWFObject("/assets/wheel.swf", "focus", "440", "220", "7", "#ffffff");
 				so.addParam('wmode','transparent');
