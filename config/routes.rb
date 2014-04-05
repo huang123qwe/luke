@@ -60,6 +60,7 @@ Luke::Application.routes.draw do
   # Example resource route within a namespace:
 
   namespace :admin do
+    root :to => "admin/users#index"
     resources :users
     resources :doings
   end

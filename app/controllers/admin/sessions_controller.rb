@@ -1,5 +1,7 @@
 class Admin::SessionsController < Devise::SessionsController
 
+  layout "admin_devise_layout"
+
   def auth
     Rails.logger.debug 'admin'
     Rails.logger.debug request.env["omniauth.auth"]

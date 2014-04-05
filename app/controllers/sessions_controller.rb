@@ -1,8 +1,8 @@
 class SessionsController < Devise::SessionsController
 
   def auth
-    Rails.logger.debug 'users'
-    Rails.logger.debug request.env["omniauth.auth"]
+    #Rails.logger.debug 'users'
+    #Rails.logger.debug request.env["omniauth.auth"]
     redirect_to '/'
   end
 
