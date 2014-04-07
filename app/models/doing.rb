@@ -1,12 +1,19 @@
 class Doing < ActiveRecord::Base
   mount_uploader :cover, ImageUploader
+  mount_uploader :video, FileUploader
 
   validates_presence_of :position
 
-  scope :left_banner, -> { where(position: '左') }
-  scope :right_banner, -> { where(position: '右') }
+  scope :left_banners, -> { where(position: '左') }
+  scope :right_banners, -> { where(position: '右') }
+  scope :video_banners, -> { where(position: '中') }
 
   def self.positions
-    ["左下","右下","左","右"]
+    ["左下", "右下", "左", "右", "中"]
   end
+
+  def self.video_types
+    ["video/mp4", "video/webm", "video/ogg"]
+  end
+
 end

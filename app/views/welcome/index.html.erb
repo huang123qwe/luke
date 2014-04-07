@@ -11,19 +11,20 @@
    <div class="index_show">
 	<img src="/assets/banner_s.png" style="position:absolute;z-index:10086;" width="1290" height="480" id="advertise_pic"/>
      	<a class="show_1" href="#nogo">
-	       <img src="<%= Doing.left_banner.last.cover_url(:banner) if Doing.left_banner.last %>"/>
+	       <img src="<%= Doing.left_banners.last.cover_url(:banner) if Doing.left_banners.present? %>"/>
 			   <span class="zzjs">拉芳塔娜<br/>La FangTaNa</span>
 			</a>
-	   <video class="index_s at_cl_vedio video-js vjs-default-skin"
-					  controls preload="auto" width="421" height="480"
-					  poster="/assets/video_1.png"
-					  data-setup='{"example_option":true}'>
-					 <source src="http://weixin-videos.qiniudn.com/2d6d3665-4151-4c36-a52d-a4e5d6e242d8" type='video/mp4' />
-					 <source src="http://weixin-videos.qiniudn.com/f5072bc3-57db-44c6-9301-ce8b23e81135" type='video/webm' />
-					</video>
+		   <video class="index_s at_cl_vedio video-js vjs-default-skin"
+						  controls preload="auto" width="421" height="480"
+						  poster="<%= Doing.video_banners.last.cover_url(:banner) if Doing.video_banners.present? %>"
+						  data-setup='{"example_option":true}'>
+						<% Doing.video_banners.each do |video_banner| %>
+						 <source src="<%= video_banner.video_url %>" type='<%= video_banner.video_type %>' />
+				 		<% end %>
+			</video>
         <span class="zzjx">菲斯古城<br/>La FangTaNa</span>					
 		<a class="show_1" href="#nogo">
-	      <img src="<%= Doing.right_banner.last.cover_url(:banner) if Doing.right_banner.last %>"/>
+	      <img src="<%= Doing.right_banners.last.cover_url(:banner) if Doing.right_banners.present? %>"/>
 		   <span class="zzj">佛罗伦萨<br/>FAS</span>
 		</a>
    </div>

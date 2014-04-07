@@ -2,5 +2,7 @@
   <%= f.input :position, collection: Doing.positions %>  
   <%= f.input :name %> 
   <%= f.input :cover, :input_html => { :class => "btn btn-default" } %>  
+  <%= f.input :video, :input_html => { :class => "btn btn-default" } %>  
+  <%= f.input :video_type, collection: Doing.video_types %> 
   <%= f.button :wrapped, value: "commit" %>  
 <% end %>
