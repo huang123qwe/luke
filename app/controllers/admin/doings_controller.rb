@@ -69,6 +69,6 @@ class Admin::DoingsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doing_params
-      params.require(:doing).permit(:name, :cover, :position, :video, :video_type)
+      params.require(:doing).permit(:name, :cover, :position, :video, :video_type, :src)
     end
 end

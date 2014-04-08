@@ -5,11 +5,14 @@
 			});
 
 			function navClose() {
-				$j("#advertise_pic").hide();
+				if($j("#advertise_pic"))
+					$j("#advertise_pic").hide();
 			}
 			</script> 
    <div class="index_show">
-	<img src="/assets/banner_s.png" style="position:absolute;z-index:10086;" width="1290" height="480" id="advertise_pic"/>
+  <% if advertise = Doing.advertise_banners.first %>
+ 	<a href="<%=advertise.src%>" target="_blank"><img src="<%= advertise.cover_url %>" style="position:absolute;z-index:10086;" width="1290" height="480" id="advertise_pic"/></a>
+ 	<% end %>
      	<a class="show_1" href="#nogo">
 	       <img src="<%= Doing.left_banners.last.cover_url(:banner) if Doing.left_banners.present? %>"/>
 			   <span class="zzjs">拉芳塔娜<br/>La FangTaNa</span>

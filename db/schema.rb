@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407030758) do
+ActiveRecord::Schema.define(version: 20140408131620) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140407030758) do
     t.string   "position"
     t.string   "video"
     t.string   "video_type"
+    t.string   "src"
   end
 
   create_table "users", force: true do |t|
