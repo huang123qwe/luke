@@ -13,6 +13,8 @@ Luke::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get 'list', to: 'welcome#list'
+  get 'content', to: 'welcome#content'
   match 'admin', to: 'admin/users#index', as: :admin, via: :all
 
   # Example of regular route:
