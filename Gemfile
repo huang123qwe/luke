@@ -43,6 +43,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 
+gem 'thread_safe', '0.2.0'
 gem 'devise'
 gem 'mina'
 
