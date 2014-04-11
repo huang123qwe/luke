@@ -6,7 +6,6 @@
       <th>Cover</th>
       <th>位置</th>
       <th>视频</th>
-      <th>视频类型</th>
       <th>广告链接</th>
       <th></th>
       <th></th>
@@ -18,10 +17,9 @@
     <% @doings.each do |doing| %>
       <tr>
         <td><%= doing.name %></td>
-        <td><%= doing.cover %></td>
+        <td><%= doing.cover? ? "true" : "" %></td>
         <td><%= doing.position %></td>
-        <td><%= doing.video_type %></td>
-        <td><%= doing.video_type %></td>
+        <td><%= doing.video.present? && doing.video_type.present? ? "true" : "" %></td>
         <td><%= doing.src %></td>
         <td><%= link_to 'Show', [:admin,doing] %></td>
         <td><%= link_to 'Edit', edit_admin_doing_path(doing) %></td>

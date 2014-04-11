@@ -43,6 +43,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 
+gem 'ckeditor'
+
 gem 'devise'
 gem 'mina'
 

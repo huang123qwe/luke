@@ -5,3 +5,6 @@
 //= require turbolinks
 //= require plugins/metisMenu/jquery.metisMenu.js
 //= require sb-admin.js
+
+//= require ckeditor/override
+//= require ckeditor/init

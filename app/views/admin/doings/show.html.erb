@@ -7,8 +7,33 @@
 
 <p>
   <strong>Cover:</strong>
-  <%= @doing.cover %>
+  <%= image_tag @doing.cover_url(:normal) %>
 </p>
+
+<p>
+  <strong>位置:</strong>
+  <%= @doing.position %>
+</p>
+
+<% if @doing.video.present? and @doing.video_type.present? %>
+<p>
+  <strong>视频:</strong>
+	 	<video class="index_s at_cl_vedio video-js vjs-default-skin"
+					  controls preload="auto" width="421" height="480"
+					  poster="<%= @doing.cover_url(:banner) %>"
+					  data-setup='{"example_option":true}'>
+		 	<source src="<%= @doing.video_url %>" type='<%= @doing.video_type %>' />
+	</video>
+</p>
+<% end %>
+
+<% if @doing.src %>
+<p>
+  <strong>广告链接:</strong>
+  <%= @doing.src %>
+</p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_admin_doing_path(@doing) %> |
 <%= link_to 'Back', admin_doings_path %>

@@ -1,5 +1,6 @@
 Luke::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   resources :doings
 
   devise_for :admins, :controllers => {:registrations => "admin/registrations",
@@ -16,6 +17,13 @@ Luke::Application.routes.draw do
   get 'list', to: 'welcome#list'
   get 'content', to: 'welcome#content'
   match 'admin', to: 'admin/users#index', as: :admin, via: :all
+
+  namespace :admin do
+    root :to => "admin/users#index"
+    resources :users
+    resources :doings
+    resources :products
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -61,9 +69,4 @@ Luke::Application.routes.draw do
 
   # Example resource route within a namespace:
 
-  namespace :admin do
-    root :to => "admin/users#index"
-    resources :users
-    resources :doings
-  end
 end

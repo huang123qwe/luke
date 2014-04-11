@@ -21,6 +21,7 @@ module Luke
     # config.i18n.default_locale = :de
 
     config.assets.paths << Rails.root.join('app', 'assets', 'swf')
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
   end
 end
