@@ -1,6 +1,7 @@
 # source 'https://rubygems.org'
 source 'http://ruby.taobao.org/'
 
+ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
@@ -35,8 +36,10 @@ group :doc do
 end
 
 group :assets do
+  gem 'html5shiv-rails'
   gem 'jquery-ui-rails'
   gem 'jquery_datepicker'
+  gem 'ui_datepicker-rails3'
   gem "simple_form" 
   gem "truncate_html"
 end

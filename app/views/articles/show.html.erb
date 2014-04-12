@@ -15,43 +15,7 @@
 	   	<li><a href="#nogo">路克海外深度游--x以及手机与电脑的海外旅游-彭浦及</a></li>
    	</ul>
   </div>
-	<div style="margin:15px auto;font-size:16px;font-weight:bold;">路克深度游——»»<a id="a" href="#nogo">点击参与</a>
-	</div>
-	<div id="b">
-  	<a href="#nogo" id="c">x</a>
-		<p>联络人：<input type="text"/> 先生/女士</p>
-		<p>电子邮件（您将会收到预定确认信息）：<input type="text" style="width:200px;"/> </p>
-		<p>联系电话（方便我们及时通知您订单情况）：<input type="text"/> </p>
-		<p>随行人数：<input type="text"/> </p>
-		<p>入住时间：<input type="text" name="datetime" class="ui_timepicker" value=""> </p>
-		<p>离店时间：<input type="text" name="datetime" class="ui_timepicker" value=""> </p>
-		<a class="bm" href="#nogo">提 交</a>
-	</div>
 </div>
-
-<script type="text/javascript">
- 	var $j = jQuery.noConflict();
-	$j("#a").click(function(){
-		$j("#b").show();
-	});
-	$j("#c").click(function(){
-		$j("#b").hide();
-	});
-</script>
-<script type="text/javascript">
-  $(function () {
-    $(".ui_timepicker").datetimepicker({
-      //showOn: "button",
-      //buttonImage: "./css/images/icon_calendar.gif",
-      //buttonImageOnly: true,
-      showSecond: true,
-      timeFormat: 'hh:mm:ss',
-      stepHour: 1,
-      stepMinute: 1,
-      stepSecond: 1
-    })
-  });
-</script>
 
 <% end %>
 

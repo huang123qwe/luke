@@ -1,0 +1,1 @@
+require 'ui_datepicker-rails3'

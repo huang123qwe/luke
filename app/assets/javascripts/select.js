@@ -1,8 +1,8 @@
 /* 维度端前端网整理 http://www.weiduduan.com */
-//var jq = $.noConflict();
+//var jq = $s.noConflict();
 var selects = document.getElementsByTagName('select');
 var isIE = (document.all && window.ActiveXObject && !window.opera) ? true : false;
-function $(id) {
+function $s(id) {
 	return document.getElementById(id);
 }
 function stopBubbling (ev) {	
@@ -51,7 +51,7 @@ function rOptions(i, name) {
 		option_li = document.createElement('li');
 			option_li.style.cursor='pointer';
 			option_li.className='open';
-		//$(options_ul).appendChild(option_li);
+		//$s(options_ul).appendChild(option_li);
 		abs.appendChild(option_li);
         //document.body.appendChild(option_li);
 		option_text = document.createTextNode(selects[i].options[n].text);
@@ -62,7 +62,7 @@ function rOptions(i, name) {
 		if(option_selected){
 			option_li.className='open_selected';
 			option_li.id='selected_' + name;
-			//$('select_info_' + name).appendChild(document.createTextNode(option_li.innerHTML));
+			//$s('select_info_' + name).appendChild(document.createTextNode(option_li.innerHTML));
 			//document.body.appendChild(document.createTextNode(option_li.innerHTML));
 			sba.appendChild(document.createTextNode(option_li.innerHTML));
 		}
@@ -84,16 +84,16 @@ function rOptions(i, name) {
 function mouseSelects(name){
 	var sincn = 'select_info_' + name;
     var abs = document.getElementById('select_info_选择目的地');
-	$(sincn).onmouseover = function(){ if(this.className=='tag_select') this.className='tag_select_hover'; }
-	$(sincn).onmouseout = function(){ if(this.className=='tag_select_hover') this.className='tag_select'; }
+	$s(sincn).onmouseover = function(){ if(this.className=='tag_select') this.className='tag_select_hover'; }
+	$s(sincn).onmouseout = function(){ if(this.className=='tag_select_hover') this.className='tag_select'; }
 
 	if (isIE){
-		$(sincn).onclick = new Function("clickSelects('"+name+"');window.event.cancelBubble = true;");
+		$s(sincn).onclick = new Function("clickSelects('"+name+"');window.event.cancelBubble = true;");
 	}
 	else if(!isIE){
-		$(sincn).onclick = new Function("clickSelects('"+name+"');");
+		$s(sincn).onclick = new Function("clickSelects('"+name+"');");
 		abs.addEventListener("click", stopBubbling, false);
-		//$('select_info_' +name).each(function(){
+		//$s('select_info_' +name).each(function(){
     //this.addEventListener("click",stopBubbling,false);
 //});
 	}
@@ -105,18 +105,20 @@ function clickSelects(name){
 	var sinul = 'options_' + name;	
 	for (i=0;i<selects.length;i++){	
 		if(selects[i].name == name){				
-			if( $(sincn).className =='tag_select_hover'){
-				$(sincn).className ='tag_select_open';
-				$(sinul).style.display = '';
+			if( $s(sincn).className =='tag_select_hover'){
+				$s(sincn).className ='tag_select_open';
+				$s(sinul).style.display = '';
 			}
-			else if( $(sincn).className =='tag_select_open'){
-				$(sincn).className = 'tag_select_hover';
-				$(sinul).style.display = 'none';
+			else if( $s(sincn).className =='tag_select_open'){
+				$s(sincn).className = 'tag_select_hover';
+				$s(sinul).style.display = 'none';
 			}
 		}
 		else{
-			$('select_info_' + selects[i].name).className = 'tag_select';
-			$('options_' + selects[i].name).style.display = 'none';
+			if($s('select_info_' + selects[i].name)){
+				$s('select_info_' + selects[i].name).className = 'tag_select';
+				$s('options_' + selects[i].name).style.display = 'none';
+			}
 		}
 	}
 
@@ -124,25 +126,25 @@ function clickSelects(name){
 
 
 function clickOptions(i, n, name){		
-	var li = $('options_' + name).getElementsByTagName('li');
+	var li = $s('options_' + name).getElementsByTagName('li');
 
-	$('selected_' + name).className='open';
-	$('selected_' + name).id='';
+	$s('selected_' + name).className='open';
+	$s('selected_' + name).id='';
 	li[n].id='selected_' + name;
 	li[n].className='open_hover';
-	$('select_' + name).removeChild($('select_info_' + name));
+	$s('select_' + name).removeChild($s('select_info_' + name));
 
 	select_info = document.createElement('div');
 		select_info.id = 'select_info_' + name;
 		select_info.className='tag_select';
 		select_info.style.cursor='pointer';
-	$('options_' + name).parentNode.insertBefore(select_info,$('options_' + name));
+	$s('options_' + name).parentNode.insertBefore(select_info,$s('options_' + name));
 
 	mouseSelects(name);
 
-	$('select_info_' + name).appendChild(document.createTextNode(li[n].innerHTML));
-	$( 'options_' + name ).style.display = 'none' ;
-	$( 'select_info_' + name ).className = 'tag_select';
+	$s('select_info_' + name).appendChild(document.createTextNode(li[n].innerHTML));
+	$s( 'options_' + name ).style.display = 'none' ;
+	$s( 'select_info_' + name ).className = 'tag_select';
 	selects[i].options[n].selected = 'selected';
 
 }
@@ -151,12 +153,13 @@ window.onload = function(e) {
 	bodyclick = document.getElementsByTagName('body').item(0);
 	rSelects();
 	bodyclick.onclick = function(){
-		for (i=0;i<selects.length;i++){	
-			$('select_info_' + selects[i].name).className = 'tag_select';
-			//$('options_' + selects[i].name).style.display = 'none';
+		for (i=0;i<selects.length;i++){
+			if($s('select_info_' + selects[i].name))
+				$s('select_info_' + selects[i].name).className = 'tag_select';
+			//$s('options_' + selects[i].name).style.display = 'none';
 			var opt = document.getElementById('options_选择目的地');
 			opt.style.display = 'none';
-			//$('options_' + selects[i].name).css('display','none');
+			//$s('options_' + selects[i].name).css('display','none');
 		}
 	}
 } /* 维度端前端网整理 http://www.weiduduan.com */
