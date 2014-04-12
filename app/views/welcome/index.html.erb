@@ -1,10 +1,4 @@
-<div class="header">
- 	<a href="/"><%= image_tag "title.png", class: "title", alt: "路克海外深度游" %></a>
- 	<a href="#nogo"><%= image_tag "English.png", class: "english", alt: "English_version" %></a>
-</div>
-<div class="logo">
-	<%= image_tag "logo.png", alt: "路克海外深度游" %>
-</div>
+<% content_for :content do %>
 <div id="main_body">
  	<script type="text/javascript">
 	 	var $j = jQuery.noConflict();
@@ -126,32 +120,13 @@
 		</script>
  	</div>
 </div>
+<% end %>
 
 
-<footer>
-  <div class="f_c">
-   	<div class="f_dis f_1">
- 			<div class="search">
-       	<input id="searchKey" type="text" value="" placeholder="Search"  />
-	   		<a href="" onclick=""></a>
-			</div>	
-      <div>			
-		   	<ul>
-					<li><a href="#nogo">关于我们</a></li>
-					<li><a href="#nogo">联系我们</a></li>
-		   	</ul>
-			</div>
-		</div>
-		<div class="f_1">
-			<ul>
-				<li><a href="#nogo">关于我们</a></li>
-				<li><a href="#nogo">联系我们</a></li>
-				<li><a href="#nogo">会员管理</a></li>
-				<li><a href="#nogo">合作伙伴</a></li>
-			</ul>
-		</div>
-		<div class="f_1">
-			<%= image_tag "QR.png"
-		</div>
-	</div>  
-</footer>
+<% content_for :footer do %>
+	<div class="search">
+ 		<input id="searchKey" type="text" value="" placeholder="Search"  />
+		<a href="" onclick=""></a>
+	</div>
+<% end %>
+

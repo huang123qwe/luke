@@ -11,6 +11,40 @@
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </head>
 <body>
+	<div class="header">
+		<%= image_tag "title.png", alt: "路克海外深度游", class: "title" %>
+		<%= image_tag "English.png", alt: "English_version", class: "english" %>
+	</div>
+	<div class="logo">
+		<%= image_tag "logo.png", alt: "路克海外深度游" %>
+	</div>
+
 	<%= yield %>
+	<%= content_for?(:content) ? yield(:content) : yield %>
+
+	<footer>
+	  <div class="f_c">
+	   	<div class="f_dis f_1">
+	   		<%= content_for?(:footer) ? yield(:footer) : yield %>	
+	      <div>			
+			   	<ul>
+						<li><a href="#nogo">关于我们</a></li>
+						<li><a href="#nogo">联系我们</a></li>
+			   	</ul>
+				</div>
+			</div>
+			<div class="f_1">
+				<ul>
+					<li><a href="#nogo">关于我们</a></li>
+					<li><a href="#nogo">联系我们</a></li>
+					<li><a href="#nogo">会员管理</a></li>
+					<li><a href="#nogo">合作伙伴</a></li>
+				</ul>
+			</div>
+			<div class="f_1">
+				<%= image_tag "QR.png" %>
+			</div>
+		</div>  
+	</footer>
 </body>
 </html>

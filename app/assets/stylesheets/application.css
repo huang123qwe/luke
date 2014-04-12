@@ -10,4 +10,6 @@
  *
  *= require css.css
  *= require shou.css
+ *= require jquery-ui-1.8.17.custom.css
+ *= require jquery-ui-timepicker-addon.css
  */

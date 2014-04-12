@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui-1.8.17.custom.min.js
 //= require bootstrap.js
 //= require turbolinks
 //= require select.js
 //= require video.js
-//= zepto.min.js
+//= require zepto.min.js
+//= require jquery-ui-timepicker-addon.js
+//= require jquery-ui-timepicker-zh-CN.js
