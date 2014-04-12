@@ -1,0 +1,60 @@
+<div class="header">
+	<%= image_tag "title.png", alt: "路克海外深度游", class: "title" %>
+	<%= image_tag "English.png", alt: "English_version", class: "english" %>
+</div>
+<div class="logo">
+	<%= image_tag "logo.png", alt: "路克海外深度游" %>
+</div>
+<div class="list_banner">
+	<% if @first_product.present? %>
+ 	<span><h1><%= @first_product.title %></h1></span>
+ 	<%= image_tag @first_product.cover_url(:list_banner), alt: @first_product.title if @first_product.cover %>
+ 	<p>
+ 		<%= truncate_html(@first_product.content, length: 100, omission: '...') %>
+ 	</p>
+ 	<% end %>
+</div>
+<div class="list_body">
+	<% @products.each do |product| %>
+	<div class="list">
+		<%= image_tag product.cover_url(:list_banner), alt: product.title if product.cover %>
+		<div class="l_c">
+	 		<span><%= product.title %></span>
+		 	<p><%= truncate_html(product.content, length: 100, omission: '...') %></p>
+		</div>
+ </div>
+ <% end if @products %>
+</div>
+<footer>
+  <div class="f_c">
+ 		<div class="f_dis f_1">
+			<div class="search">
+       	<div id="uboxstyle">
+					<select name="选择目的地" id="jquery">
+						<option value="选择目的地"  selected="selected">选择目的地</option>
+						<% Product.pluck(:city).uniq.each do |city| %>
+							<option value="<%=city%>" ><%=city%></option>
+						<% end %>
+					</select>
+				</div>
+			</div>	
+      <div>			
+		   	<ul>
+	       	<li><a href="#nogo">关于我们</a></li>
+		   		<li><a href="#nogo">联系我们</a></li>
+		   	</ul>
+			</div>
+ 		</div>
+	 	<div class="f_1">
+	   	<ul>
+	     	<li><a href="#nogo">关于我们</a></li>
+		   	<li><a href="#nogo">联系我们</a></li>
+		   	<li><a href="#nogo">会员管理</a></li>
+		   	<li><a href="#nogo">合作伙伴</a></li>
+	   	</ul>
+		</div>
+		<div class="f_1">
+			<%= image_tag "QR.png" %>
+		</div>
+	</div> 
+</footer>  

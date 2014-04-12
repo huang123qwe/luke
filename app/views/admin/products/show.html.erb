@@ -6,7 +6,12 @@
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>封面:</strong>
+  <%= image_tag @product.cover_url(:normal) %>
+</p>
+
+<p>
+  <strong>内容:</strong>
   <%= @product.content.html_safe %>
 </p>
 

@@ -1,7 +1,6 @@
 Luke::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  resources :doings
 
   devise_for :admins, :controllers => {:registrations => "admin/registrations",
    :sessions => "admin/sessions" }
@@ -14,12 +13,15 @@ Luke::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get 'list', to: 'welcome#list'
   get 'content', to: 'welcome#content'
   match 'admin', to: 'admin/users#index', as: :admin, via: :all
 
+  resources :articles
+  resources :products
+
   namespace :admin do
     root :to => "admin/users#index"
+    resources :articles
     resources :users
     resources :doings
     resources :products

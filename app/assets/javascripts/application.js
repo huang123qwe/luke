@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap.js
 //= require turbolinks
+//= require select.js
+//= require video.js
+//= zepto.min.js

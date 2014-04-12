@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411203725) do
+ActiveRecord::Schema.define(version: 20140412012720) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20140411203725) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.string   "cover"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -61,6 +69,9 @@ ActiveRecord::Schema.define(version: 20140411203725) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "cover"
+    t.string   "country"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
