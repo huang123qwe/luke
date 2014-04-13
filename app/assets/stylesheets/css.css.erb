@@ -21,12 +21,13 @@ div,p,li,dt,dd,label,h1,h2,h3,h4,h5,h6{text-align:left;}
 .header{ height:36px;width:100%;margin:0 auto;background-color:#05111a;}
 .header .title{display:inline-block;margin:7px 0 0 30px;}
 .header .english{float:right; margin-right:30px;}
-.logo{height:89px;width:100%;background:url(../images/logo_bg.png) no-repeat;-webkit-background-size:100% 89px;background-size:100% 89px;text-align:center;}
+.header .login{position:absolute;line-height:40px;color:#fff;}
+.logo{height:89px;width:100%;background:url(<%= asset_path 'logo_bg.png' %>) no-repeat;-webkit-background-size:100% 89px;background-size:100% 89px;text-align:center;}
 .logo img{margin-top:10px;}
 .banner{ text-align:center;margin-top:13px; margin-bottom:33px;}
 .banner img{margin-bottom:10px;}
 .lei{margin:-20px 0 30px 0;}
-/*--- β�� ---*/
+
 footer{background-color:#050f1a; height:265px; text-align:center; width:100%; margin:0 auto;}
 footer .f_c{width:1070px; display:inline-block;padding-top:30px;}
 footer .f_1{border-left:1px solid #213747; width:349px; height:205px; display:inline-block;float:left;}
@@ -39,7 +40,7 @@ footer ul{margin:20px 0 0 20px;}
 footer ul li{font-size:15px; height:35px;}
 footer ul li a{  color:#0952a2;}
 #main_body{ width:1300px; height:auto; text-align:center; margin-bottom:40px; display:inline;}
-#main_body .body_half{width:49%;display:inline-block; text-align:center;margin-bottom；10px; padding-bottom:10px;}
+#main_body .body_half{width:49%;display:inline-block; text-align:center;margin-bottom: 10px; padding-bottom:10px;}
 #main_body .cut{border-left:1px solid #283b4a;}
 #main_body ul{ width:1065px; height:auto; list-style:none;margin:0 auto;}
 #main_body ul li{ width:25%; height:auto; float:left; margin-bottom:15px;}
@@ -49,7 +50,7 @@ footer ul li a{  color:#0952a2;}
 .index_show{height:490px;margin:0 auto 30px;padding:5px 0;text-align:center; width:1300px; background-color:#fff; box-shadow:#666 0px 1px 10px;-webkit-box-shadow: #666 0px 1px 10px;
 -moz-box-shadow: #666 0px 1px 10px;position:relative;}
 .index_show img{}
-.index_show .index_s{display:inline-block;background-color:#c3c4b6;position:relative;background:url(../images/video_bg.png) no-repeat;}
+.index_show .index_s{display:inline-block;background-color:#c3c4b6;position:relative;background:url(<%= asset_path 'video_bg.png' %>) no-repeat;}
 .index_show .vjs-big-play-button{top:17em;left:17em;width:7em;height:7em;-webkit-border-radius:50px;-moz-border-radius:50px;border-radius:50px;}
 .index_show a.show_1 {
 text-decoration: none;
@@ -143,3 +144,47 @@ border-top: 1px solid #999; }
 #c{position:absolute;right:20px;}
 .bm{background-color:#05111A;width:150px;height:30px;line-height:30px;text-align:center;color:#fff;display:block;margin:10px auto;}
 .ui-timepicker-div{display:none;}
+
+/*-------------弹窗------------*/
+.regk{position:absolute;display:none;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{display:inline-table}
+.clearfix{height:1%}.clearfix{display:block}*+html
+.clearfix{min-height:1%}
+
+
+.btn01{display:inline-block; width:100px; right:250px; font-size:16px; font-weight:bold; letter-spacing:3px; height:35px; line-height:35px; text-align:center;}
+.btn02{ display:inline-block; width:100px; right:200px; font-size:16px; font-weight:bold; letter-spacing:3px; height:35px; line-height:35px; text-align:center;}
+
+
+
+/* modal */
+.modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;background-color:#000000;opacity:0.6;filter:alpha(opacity=60)}
+.modal{position:fixed;top:50%;left:50%;z-index:1050;width:560px;margin:-250px 0 0 -280px;background-color:#ffffff;border:1px solid #999;border:1px solid rgba(0,0,0,0.3);*border:1px solid #999;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;outline:none;-webkit-box-shadow:0 3px 7px rgba(0,0,0,0.3);-moz-box-shadow:0 3px 7px rgba(0,0,0,0.3);box-shadow:0 3px 7px rgba(0,0,0,0.3);-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box}
+
+
+.close{cursor:pointer;padding:2px 3px;cursor:pointer;padding:2px 3px;position:absolute;right:10px;top:14px}
+.close:hover{background-color:grey;color:#ffffff}
+
+.button-blue{display:block;float:left;padding:5px 0;width:80px;margin-right:10px;color:#fff;background:#407acc;text-align:center;cursor:pointer}
+.button-blue:hover{background:#084b91;text-decoration:none;color:#ffffff}
+
+.button-grey{display:block;float:left;padding:5px 0;width:80px;color:#fff;background:#ccc;text-align:center;cursor:pointer}
+.button-grey:hover{background:#aaa;text-decoration:none}
+
+
+.login-form input,.signup-form input,.forgot-form input{padding:9px 9px 9px 9px;margin-bottom:20px;width:94%}
+.login-form .forgot,.login-form .login,.login-form .reg,.signup-form .forgot,.signup-form .login,.signup-form .reg,.forgot-form .forgot,.forgot-form .login,.forgot-form .reg{width:302px;padding:0;margin:0 0 10px 0;height:35px;font-size:18px;cursor:pointer}
+.login-form label.remember,.signup-form label.remember,.forgot-form label.remember{font-size:13px}
+.login-form input[type="checkbox"],.signup-form input[type="checkbox"],.forgot-form input[type="checkbox"]{width:auto;height:auto;padding:0;margin:3px 5px 0 0}
+.login-form a.forgot,.signup-form a.forgot,.forgot-form a.forgot{font-size:13px;float:right;margin-top:2px;width:auto;cursor:pointer}
+.login-form p.error,.signup-form p.error,.forgot-form p.error{font-size:13px;margin-bottom:5px;color:#b22d2d}
+#signup-modal,#login-modal,#forgetform,.modal{display:none;width:410px;padding:0 40px 20px;background:white;border:5px solid rgba(0,0,0,0.2);margin-left:-190px;border-radius:10px;overflow:hidden;margin-bottom:40px;box-shadow:0 1px 0 white inset;margin-top:-267px}
+#signup-modal a:hover,#login-modal a:hover,#forgetform a:hover,.modal a:hover{text-decoration:none}
+.modal h1,#forgetform h1,#signup-modal h1,#login-modal h1{margin:0 -40px;background:#EEE;border-bottom:1px solid #CCC;border-top:1px solid #CCC;font-size:16px;padding:13px 40px;border-top-left-radius:6px;border-top-right-radius:6px;text-align:center;margin-bottom:30px}
+.modal .close,#signup-modal .close,#login-modal .close,#forgetform .close{position:absolute;top:0;right:0;padding:12px 18px 16px 18px;height:16px;overflow:hidden;opacity:.8;border-left:1px solid #BBB}
+.forgot-btn,.login-btn{display:inline-block;*display:inline;*zoom:1;margin-top:14px;color:#ffffff}
+
+
+/*------关于我们------*/
+.about_bd{width:1065px;margin:20px auto 0;}
+.tab-pane p{line-height:24px;}

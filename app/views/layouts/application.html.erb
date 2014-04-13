@@ -19,6 +19,12 @@
 <body>
 	<div class="header">
 		<%= image_tag "title.png", alt: "路克海外深度游", class: "title" %>
+		<% if current_user %>
+
+		<% else %>
+			<a class="login btn01" data-toggle="modal" href="#login-modal">登录|</a>
+			<a class="login btn02" data-toggle="modal" href="#signup-modal">注册</a>
+		<% end %>
 		<%= image_tag "English.png", alt: "English_version", class: "english" %>
 	</div>
 	<div class="logo">
@@ -52,5 +58,74 @@
 			</div>
 		</div>  
 	</footer>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$("a.forgot").click(function(){
+			$("#login-modal").modal("hide");
+			$("#forgetform").modal({show:!0})
+		});
+		
+		$("#signup-modal").modal("hide");
+		$("#forgetform").modal("hide");
+		$("#login-modal").modal("hide");
+		$("#activation-modal").modal("hide");
+		$("#setpassword-modal").modal("hide");
+		
+	});
+</script>  
+<div class="modal" id="login-modal" style="display: none;">
+	<a class="close" data-dismiss="modal">×</a>
+	<h1>登录</h1>
+	<form class="login-form clearfix" method="post" action="http://www.17sucai.com">
+		<div class="form-arrow"></div>
+		<input name="email" type="text" placeholder="邮箱：">
+		<input name="password" type="password" placeholder="密码：">
+		<input type="submit" name="type" class="button-blue login" value="登录">
+		<input type="hidden" name="return-url" value="">
+		<div class="clearfix"></div>
+		<label class="remember"><input name="remember" type="checkbox" checked="">下次自动登录 </label>
+		<a class="forgot">忘记密码？</a>
+	</form>
+</div>
+<div class="modal" id="forgetform" style="display: none;">
+	<a class="close" data-dismiss="modal">×</a>
+	<h1>忘记密码</h1>
+	<form class="forgot-form" method="post" action="http://www.17sucai.com">
+		<input name="email" value="" placeholder="注册邮箱：">
+		<div class="clearfix"></div>
+		<input type="submit" name="type" class="forgot button-blue" value="发送重设密码邮件">
+	</form>
+</div>
+<div class="modal" id="setpassword-modal" style="display: none;">
+	<a class="close" data-dismiss="modal">×</a>
+	<h1>重置密码</h1>
+	<form class="signup-form clearfix" method="post" action="http://www.17sucai.com">
+		<input name="email" value="">
+		<input name="password" type="password" placeholder="密码：">
+		<input name="password2" type="password" placeholder="确认密码：">
+		<input name="token" type="hidden" value="">
+		<input type="submit" name="type" class="button-blue reg" value="设置新密码并登录" data-action="reset">
+		<div class="clearfix"></div>
+	</form>
+</div>
+<div class="modal" id="signup-modal" style="display:none;">
+	<a class="close" data-dismiss="modal">×</a>
+	<h1>注册</h1>
+	<form class="signup-form clearfix" method="post" action="http://www.17sucai.com">
+		<p class="error"></p>
+		<input name="email" type="text" placeholder="邮箱：">
+		<input name="password" type="password" placeholder="密码：">
+		<input name="password1" type="password" placeholder="确认密码：">
+		<input name="username" type="text" placeholder="微信昵称：">
+		<input type="hidden" name="title" value="">
+		<input type="hidden" name="url" value="">
+		<div class="clearfix"></div>
+		<input type="button" name="type" class="button-blue reg" value="注册" data-action="regist">
+	</form>
+</div>
+
+
 </body>
 </html>

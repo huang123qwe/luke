@@ -44,6 +44,8 @@ group :assets do
   gem "truncate_html"
 end
 
+gem 'mina'
+
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'

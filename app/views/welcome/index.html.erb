@@ -3,7 +3,7 @@
  	<div class="index_show">
   <% if advertise = Doing.advertise_banners.first %>
 	<a href="<%=advertise.src%>" target="_blank">
-		<%= image_tag advertise.cover_url, style: "position:absolute;z-index:10086;", width: "1290", height: "480", id: "advertise_pic" %>
+		<%= image_tag advertise.cover_url, style: "position:absolute;z-index:999;", width: "1290", height: "480", id: "advertise_pic" %>
 	</a>
  	<% end %>
  	<a class="show_1" href="#nogo">

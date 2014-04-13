@@ -14,7 +14,9 @@ Luke::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get 'content', to: 'welcome#content'
-  match 'admin', to: 'admin/users#index', as: :admin, via: :all
+  get 'admin', to: 'admin/users#index', as: :admin
+  get "sign_in", to: "sessions#new"
+  get "sign_up", to: "registrations#create"
 
   resources :articles
   resources :products

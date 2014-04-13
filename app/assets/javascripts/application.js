@@ -19,3 +19,4 @@
 //= require video.js
 //= require jquery-ui-timepicker-addon.js
 //= require jquery-ui-timepicker-zh-CN.js
+//= require modal.js
