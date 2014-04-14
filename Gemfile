@@ -47,14 +47,13 @@ end
 gem 'mina'
 
 gem 'carrierwave'
-gem 'rmagick'
+# gem 'rmagick'
 gem 'mini_magick'
 
 gem 'ckeditor'
 
 gem 'thread_safe', '0.2.0'
 gem 'devise'
-gem 'mina'
 
 gem 'execjs'
 

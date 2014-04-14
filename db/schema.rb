@@ -58,12 +58,12 @@ ActiveRecord::Schema.define(version: 20140412012720) do
   create_table "doings", force: true do |t|
     t.string   "name"
     t.string   "cover"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "position"
+    t.string   "src"
     t.string   "video"
     t.string   "video_type"
-    t.string   "src"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|
