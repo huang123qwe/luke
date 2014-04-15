@@ -22,7 +22,7 @@ set :repository, 'git@github.com:u2/luke.git'
 set :branch, branch
 set :ssh_options, '-A'
 
-set :shared_paths, ['log', 'tmp/restart.txt', 'public/uploads', 'public/robots.txt']
+set :shared_paths, ['log', 'tmp/restart.txt', 'public/uploads', 'public/robots.txt', 'config/database.yml']
 
 set :user, 'andersen'
 set :term_mode, :nil
