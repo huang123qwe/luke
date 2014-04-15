@@ -1,4 +1,7 @@
 class Admin::RegistrationsController < Devise::RegistrationsController
+
+  layout "admin_devise_layout"
+
   before_filter :update_sanitized_params, if: :devise_controller?
 
   def update_sanitized_params
