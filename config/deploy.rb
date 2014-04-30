@@ -65,6 +65,7 @@ task :deploy => :environment do
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
+    invoke :'deploy:cleanup'
 
     to :launch do
       queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
