@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_article, only: [:show]
+  before_action :set_product, only: [:show]
 
   def index
     @first_product = Product.last
@@ -13,8 +13,8 @@ class ProductsController < ApplicationController
 
   private
 
-    def set_article
-      @article = Article.find(params[:id])
+    def set_product
+      @product = Product.find(params[:id])
     end
 
 end
