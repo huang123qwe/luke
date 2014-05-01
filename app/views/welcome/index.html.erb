@@ -50,7 +50,7 @@
 			<% left_doings = Doing.where(position: "左下").all %>
 			<% left_doings.each_with_index do |doing,index| %>
 				pics += "<%= doing.cover_url(:normal) %>";
-				links += "/content";
+				links += "/articles";
 				texts += "";
 				<% if index < left_doings.size - 1 %>
 					pics += "|";
@@ -84,7 +84,7 @@
 			<% right_doings = Doing.where(position: "右下").all %>
 			<% right_doings.each_with_index do |doing,index| %>
 				pics += "<%= doing.cover_url(:normal) %>";
-				links += "/list";
+				links += "/products";
 				texts += "";
 				<% if index < right_doings.size - 1 %>
 					pics += "|";
