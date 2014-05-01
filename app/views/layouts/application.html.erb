@@ -37,7 +37,16 @@
 	<footer>
 	  <div class="f_c">
 	   	<div class="f_dis f_1">
-	   		<%= content_for?(:footer) ? yield(:footer) : yield %>	
+				<div class="search">
+				 	<div id="uboxstyle">
+						<select name="选择目的地" id="jquery">
+							<option value="选择目的地"  selected="selected">选择目的地</option>
+							<% Product.pluck(:city).uniq.each do |city| %>
+								<option value="<%=city%>" ><%=city%></option>
+							<% end %>
+						</select>
+					</div>
+				</div>	
 	      <div>			
 			   	<ul>
 						<li><a href="#nogo">关于我们</a></li>
