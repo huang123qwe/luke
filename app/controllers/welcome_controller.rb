@@ -2,6 +2,7 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def content
+  def about
+    
   end
 end

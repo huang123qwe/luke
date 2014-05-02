@@ -16,6 +16,7 @@ Luke::Application.routes.draw do
   get 'admin', to: 'admin/users#index', as: :admin
   get "sign_in", to: "sessions#new"
   get "sign_up", to: "registrations#create"
+  get "about", to: "welcome#about"
 
   resources :articles, only: [:show, :index]
   resources :products, only: [:show, :index]

@@ -21,3 +21,5 @@
 //= require jquery-ui-timepicker-addon.js
 //= require jquery-ui-timepicker-zh-CN.js
 //= require modal.js
+//= require bootstrap-transition.js
+//= require bootstrap-tab.js

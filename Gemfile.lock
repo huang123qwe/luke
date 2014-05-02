@@ -48,6 +48,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    commonjs (0.2.7)
     connection_pool (2.0.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -74,6 +75,11 @@ GEM
       railties (>= 3.2.16)
     jquery_datepicker (0.4)
     json (1.8.1)
+    less (2.4.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.4.2)
+      actionpack (>= 3.1)
+      less (~> 2.4.0)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -188,6 +194,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   jquery_datepicker
+  less-rails
   mina
   mini_magick
   pg
