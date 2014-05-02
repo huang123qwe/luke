@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+// require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui-1.10.3.min
 //= require bootstrap.js
-//= require turbolinks
+// require turbolinks
 //= require select.js
 //= require video.js
 //= require jquery-ui-timepicker-addon.js

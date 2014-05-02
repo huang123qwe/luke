@@ -43,6 +43,7 @@ group :assets do
   gem "simple_form" 
   gem "truncate_html"
   gem "select2-rails"
+  gem 'jquery-turbolinks'
 end
 
 gem 'rails-i18n', '~> 4.0.0' 
