@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412012720) do
+ActiveRecord::Schema.define(version: 20140501090220) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -64,6 +64,20 @@ ActiveRecord::Schema.define(version: 20140412012720) do
     t.string   "video"
     t.string   "video_type"
     t.string   "src"
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "contact_person"
+    t.string   "email"
+    t.string   "mobile"
+    t.integer  "pnumber"
+    t.date     "check_in"
+    t.date     "leave_away"
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|

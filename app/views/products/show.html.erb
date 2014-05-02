@@ -15,19 +15,42 @@
 	   	<li><a href="#nogo">路克海外深度游--x以及手机与电脑的海外旅游-彭浦及</a></li>
    	</ul>
   </div>
-
+	
+	<% if flash[:notice] %>
+		<script type="text/javascript">
+			$("#b").show();
+		</script>
+		<div id="b">
+		<%= flash[:notice] %>
+		</div>
+	<% else %>
 	<div style="margin:15px auto;font-size:16px;font-weight:bold;">路克深度游——»»<a id="a" href="#nogo">点击参与</a>
 	</div>
 	<div id="b">
   	<a href="#nogo" id="c">x</a>
-		<p>联络人：<input type="text"/> 先生/女士</p>
-		<p>电子邮件（您将会收到预定确认信息）：<input type="text" style="width:200px;"/> </p>
-		<p>联系电话（方便我们及时通知您订单情况）：<input type="text"/> </p>
-		<p>随行人数：<input type="text"/> </p>
-		<p>入住时间：<input type="text" name="datetime" class="ui_timepicker" value=""> </p>
-		<p>离店时间：<input type="text" name="datetime" class="ui_timepicker" value=""> </p>
-		<a class="bm" href="#nogo">提 交</a>
+		<% if @order.errors.any? %>
+			<script type="text/javascript">
+				$("#b").show();
+			</script>
+			<ul>
+			  <% @order.errors.full_messages.each do |msg| %>
+			    <li><%= msg %></li>
+			  <% end %>
+			</ul>
+		<% end %>
+		<%= form_for @order, url: orders_url , html: { id: "new_order" } do |f| %>
+			<p>联络人：<input id="order_contact_person" name="order[contact_person]" type="text"> 先生/女士</p>
+			<p>电子邮件（您将会收到预定确认信息）：<input id="order_email" name="order[email]" type="email" style="width:200px;"> </p>
+			<p>联系电话（方便我们及时通知您订单情况）：<input id="order_mobile" name="order[mobile]" type="text"></p>
+			<p>随行人数：<input id="order_pnumber" name="order[pnumber]" type="text"> </p>
+			<p>入住时间：<input id="order_check_in" name="order[check_in]" type="text" class="ui_timepicker"></p>
+			<p>离店时间：<input id="order_leave_away" name="order[leave_away]" type="text" class="ui_timepicker"></p>
+			<%= f.hidden_field :product_id, value: @product.id  %>
+			<%= f.hidden_field :user_id, value: current_user.try(:id) %>
+			<a class="bm" onclick="$('#new_order').submit();">提 交</a>
+		<% end %>
 	</div>
+	<% end %>
 </div>
 
 <script type="text/javascript">

@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
 
   def show
+    @order = Order.new
   end
 
   private

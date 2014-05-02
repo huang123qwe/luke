@@ -19,6 +19,7 @@ Luke::Application.routes.draw do
 
   resources :articles, only: [:show, :index]
   resources :products, only: [:show, :index]
+  resources :orders, only: [:new, :create]
 
   namespace :admin do
     root :to => "admin/users#index"
@@ -26,6 +27,7 @@ Luke::Application.routes.draw do
     resources :users
     resources :doings
     resources :products
+    resources :orders
   end
 
   # Example of regular route:

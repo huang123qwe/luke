@@ -1,0 +1,39 @@
+<h1>订单列表</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>产品</th>
+      <th>联络人</th>
+      <th>电子邮件</th>
+      <th>联系电话</th>
+      <th>随行人数</th>
+      <th>入住时间</th>
+      <th>离店时间</th>
+      <th>产品</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.product.try(:title) %></td>
+        <td><%= order.contact_person %></td>
+        <td><%= order.email %></td>
+        <td><%= order.mobile %></td>
+        <td><%= order.pnumber %></td>
+        <td><%= order.check_in %></td>
+        <td><%= order.leave_away %></td>
+        <td><%= order.product_id %></td>
+        <td><%= link_to '显示', [:admin, order] %></td>
+        <td><%= link_to '修改', edit_admin_order_path(order) %></td>
+        <td><%= link_to '删除', [:admin, order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建订单', new_admin_order_path %>

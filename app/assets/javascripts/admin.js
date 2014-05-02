@@ -8,3 +8,5 @@
 
 //= require ckeditor/override
 //= require ckeditor/init
+
+//= require share.js

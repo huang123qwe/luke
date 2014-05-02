@@ -1,0 +1,13 @@
+zh-CN:  
+  activerecord:  
+    models:  
+      order: '订单'  
+    attributes:  
+      order:  
+        contact_person: '联络人'  
+        email: '电子邮件'  
+        mobile: '联系电话'  
+        pnumber: '随行人数'  
+        check_in: '入住时间'
+        leave_away: '离店时间' 
+        product: "产品"

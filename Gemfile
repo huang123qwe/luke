@@ -44,6 +44,8 @@ group :assets do
   gem "truncate_html"
 end
 
+gem 'rails-i18n', '~> 4.0.0' 
+
 gem 'mina'
 
 gem 'carrierwave'

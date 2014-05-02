@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>联系人:</strong>
+  <%= @order.contact_person %>
+</p>
+
+<p>
+  <strong>电子邮件:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>联系电话:</strong>
+  <%= @order.mobile %>
+</p>
+
+<p>
+  <strong>随行人数:</strong>
+  <%= @order.pnumber %>
+</p>
+
+<p>
+  <strong>入住时间:</strong>
+  <%= @order.check_in %>
+</p>
+
+<p>
+  <strong>离店时间:</strong>
+  <%= @order.leave_away %>
+</p>
+
+<p>
+  <strong>产品:</strong>
+  <%= @order.product_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_order_path(@order) %> |
+<%= link_to 'Back', admin_orders_path %>
