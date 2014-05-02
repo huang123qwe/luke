@@ -42,6 +42,7 @@ group :assets do
   gem 'ui_datepicker-rails3'
   gem "simple_form" 
   gem "truncate_html"
+  gem "select2-rails"
 end
 
 gem 'rails-i18n', '~> 4.0.0' 

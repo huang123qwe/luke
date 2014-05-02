@@ -11,6 +11,15 @@
 </p>
 
 <p>
+  <strong>相关产品:</strong>
+  <ul>
+  <% @article.products.each do |product| %>
+		<li><%= link_to product.title, admin_product_path(product) %></li>
+  <% end %>
+  </ul>
+</p>
+
+<p>
   <strong>内容:</strong>
   <%= @article.content.html_safe %>
 </p>

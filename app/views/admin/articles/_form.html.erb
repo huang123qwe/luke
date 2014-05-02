@@ -2,7 +2,11 @@
 
   <%= f.input :title, label: "标题" %>
   <%= f.input :cover, label: "封面" %>
+  <%= f.association :products, collection: Product.all, label: '相关产品' %>
   <%= f.input_field :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
 
   <%= f.button :wrapped, value: "commit" %>  
+<% end %>
+<%= javascript_tag do %>
+  $('#article_product_ids').select2();
 <% end %>

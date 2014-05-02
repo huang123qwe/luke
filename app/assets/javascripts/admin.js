@@ -8,5 +8,7 @@
 
 //= require ckeditor/override
 //= require ckeditor/init
+//= require select2
 
 //= require share.js
+//= require select2_locale_zh-CN

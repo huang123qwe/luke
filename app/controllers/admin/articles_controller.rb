@@ -24,10 +24,14 @@ class Admin::ArticlesController < AdminController
   # POST /articles
   # POST /articles.json
   def create
+    product_ids = params[:article].delete(:product_ids)
     @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save
+        Product.where(id: product_ids).each do |t|
+          ProductsArticle.create(product_id: t.id, article_id: @article.id)
+        end
         format.html { redirect_to [:admin, @article], notice: 'Article was successfully created.' }
         format.json { render action: 'show', status: :created, location: @article }
       else
@@ -40,8 +44,16 @@ class Admin::ArticlesController < AdminController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    product_ids = params[:article].delete(:product_ids)
     respond_to do |format|
       if @article.update(article_params)
+        # set null for pre-group
+        ProductsArticle.where.not(product_id: product_ids).where(article_id: @article.id).destroy_all
+
+        Product.where(id: product_ids).each do |t|
+          ProductsArticle.where(product_id: t.id, article_id: @article.id).first_or_create
+        end
+
         format.html { redirect_to [:admin, @article], notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else

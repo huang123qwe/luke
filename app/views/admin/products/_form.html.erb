@@ -4,7 +4,12 @@
   <%= f.input :cover, label: "封面" %>
   <%= f.input :country, label: "国家", as: :string %>
   <%= f.input :city, label: "城市", as: :string %>
+  <%= f.association :articles, collection: Article.all, label: '相关文章' %>
   <%= f.input_field :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
 
   <%= f.button :wrapped, value: "commit" %>  
+<% end %>
+
+<%= javascript_tag do %>
+  $('#product_article_ids').select2();
 <% end %>
