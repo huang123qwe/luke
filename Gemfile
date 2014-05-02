@@ -48,6 +48,8 @@ gem 'rails-i18n', '~> 4.0.0'
 
 gem 'mina'
 
+gem 'sidekiq'
+
 gem 'carrierwave'
 # gem 'rmagick'
 gem 'mini_magick'

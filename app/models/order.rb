@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   def send_email
-    OrderMailer.order_email(self).deliver
+    OrderMailWorker.perform_async(self.id)
   end
 
 end
