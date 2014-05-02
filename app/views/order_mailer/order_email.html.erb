@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>路客海外深度游</h1>
+    <h2>酒店套餐预订信息表</h2>
+    <p>
+      预订联络人: <u><%= @order.contact_person %></u> 先生/女士<br>
+      电子邮件（您将会收到预订确认信息）： <u><%= @order.email %></u> <br>
+      联系电话（方便我们及时通知您订单情况）： <u><%= @order.mobile %></u> <br>
+      套餐名称： <u><%= @order.product.title %></u> <br>
+      住客人数： <u><%= @order.pnumber %></u> <br>
+      入住时间： <u><%= @order.check_in %></u>  离店时间：<u><%= @order.leave_away %></u> <br>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+    <p> 上海路克文化发展有限公司  <p>
+  </body>
+</html>
