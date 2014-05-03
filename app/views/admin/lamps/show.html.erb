@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lamp.name %>
+</p>
+
+<p>
+  <strong>Cover:</strong>
+  <%= image_tag @lamp.cover.url(:small) %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @lamp.position %>
+</p>
+
+<%= link_to 'Edit', edit_admin_lamp_path(@lamp) %> |
+<%= link_to 'Back', admin_lamps_path %>

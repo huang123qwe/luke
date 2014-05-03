@@ -54,12 +54,13 @@
 
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
-                <%= tabs_tag :open_tabs => { :id => "side-menu", :class => "nav" } do |tab| %>
+                <%= tabs_tag :builder => MenuTabBuilder, :open_tabs => { :id => "side-menu", :class => "nav  nav-pills nav-stacked" } do |tab| %>
                   <%= tab.user      'User', admin_users_path %>
                   <%= tab.doing     '焦点图/视频/广告', admin_doings_path %>
+                  <%= tab.lamp     '跑马灯', admin_lamps_path %>
                   <%= tab.product   '产品', admin_products_path %>
                   <%= tab.article   '文章', admin_articles_path %>
-                  <%= tab.article   '订单', admin_orders_path %>
+                  <%= tab.order   '订单', admin_orders_path %>
                 <% end %>
                 <!-- /#side-menu -->
             </div>

@@ -12,3 +12,4 @@
 
 //= require share.js
 //= require select2_locale_zh-CN
+//= require jcrop

@@ -27,6 +27,7 @@ Luke::Application.routes.draw do
     resources :articles
     resources :users
     resources :doings
+    resources :lamps
     resources :products
     resources :orders
   end

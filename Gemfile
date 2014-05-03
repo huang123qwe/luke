@@ -1,5 +1,5 @@
-# source 'https://rubygems.org'
-source 'http://ruby.taobao.org/'
+ source 'https://rubygems.org'
+#source 'http://ruby.taobao.org/'
 
 ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -46,6 +46,7 @@ group :assets do
   gem "truncate_html"
   gem "select2-rails"
   gem 'jquery-turbolinks'
+  gem 'jcrop-rails-v2'
 end
 
 gem 'rails-i18n', '~> 4.0.0' 
@@ -55,6 +56,7 @@ gem 'mina'
 gem 'sidekiq'
 
 gem 'carrierwave'
+gem 'paperclip', '~> 3.0'
 # gem 'rmagick'
 gem 'mini_magick'
 

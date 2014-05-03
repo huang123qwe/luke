@@ -1,6 +1,8 @@
 class Admin::ArticlesController < AdminController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  set_tab :article
+
   # GET /articles
   # GET /articles.json
   def index

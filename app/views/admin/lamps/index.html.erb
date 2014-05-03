@@ -1,0 +1,27 @@
+<h1>跑马灯</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lamps.each do |lamp| %>
+      <tr>
+        <td><%= lamp.name %></td>
+        <td><%= lamp.position %></td>
+        <td><%= link_to 'Show', [:admin, lamp] %></td>
+        <td><%= link_to 'Edit', edit_admin_lamp_path(lamp) %></td>
+        <td><%= link_to 'Destroy', [:admin, lamp], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lamp', new_admin_lamp_path %>

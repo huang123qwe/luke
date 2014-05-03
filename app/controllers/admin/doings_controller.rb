@@ -1,6 +1,8 @@
 class Admin::DoingsController < AdminController
   before_action :set_doing, only: [:show, :edit, :update, :destroy]
 
+  set_tab :doing
+
   # GET /doings
   # GET /doings.json
   def index

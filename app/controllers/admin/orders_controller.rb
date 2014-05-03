@@ -1,6 +1,8 @@
 class Admin::OrdersController < AdminController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+  set_tab :order
+
   # GET /orders
   # GET /orders.json
   def index

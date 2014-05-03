@@ -10,7 +10,7 @@ class Doing < ActiveRecord::Base
   scope :advertise_banners, -> { where(position: '广告') }
 
   def self.positions
-    ["左下", "右下", "左", "右", "中","广告"]
+    ["左", "右", "视频","广告"]
   end
 
   def self.video_types

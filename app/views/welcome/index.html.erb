@@ -47,12 +47,12 @@
 			var pics = "";
 			var links = "";
 			var texts = ""; 
-			<% left_doings = Doing.where(position: "左下").all %>
-			<% left_doings.each_with_index do |doing,index| %>
-				pics += "<%= doing.cover_url(:normal) %>";
+			<% left_lamps = Lamp.where(position: "左").all %>
+			<% left_lamps.each_with_index do |lamp,index| %>
+				pics += "<%= lamp.cover.url(:small) %>";
 				links += "/articles";
-				texts += "";
-				<% if index < left_doings.size - 1 %>
+				texts += "<%= lamp.name %>";
+				<% if index < left_lamps.size - 1 %>
 					pics += "|";
 					links += "|";
 					texts += "|";				
@@ -81,12 +81,12 @@
 			var links = "";
 			var texts = ""; 
 
-			<% right_doings = Doing.where(position: "右下").all %>
-			<% right_doings.each_with_index do |doing,index| %>
-				pics += "<%= doing.cover_url(:normal) %>";
+			<% right_lamps = Lamp.where(position: "右").all %>
+			<% right_lamps.each_with_index do |lamp,index| %>
+				pics += "<%= lamp.cover.url(:small) %>";
 				links += "/products";
-				texts += "";
-				<% if index < right_doings.size - 1 %>
+				texts += "<%= lamp.name %>";
+				<% if index < right_lamps.size - 1 %>
 					pics += "|";
 					links += "|";
 					texts += "|";				

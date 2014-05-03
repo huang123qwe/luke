@@ -1,0 +1,8 @@
+zh-CN:  
+  activerecord:  
+    models:  
+      lamp: '跑马灯'  
+    attributes:  
+      lamp:  
+        name: '名称'  
+        position: '位置'  
