@@ -7,7 +7,15 @@
 
 <p>
   <strong>Cover:</strong>
-  <%= image_tag @doing.cover_url(:normal) %>
+  <% case @doing.position %>
+  <% when "广告" %>
+    <%= image_tag @doing.cover.url %>
+  <% when "视频" %>
+    <%= image_tag @doing.cover.url(:video) %>
+  <% else %>
+    <%= image_tag @doing.cover(:small) %>
+  <% end %>
+  
 </p>
 
 <p>
@@ -20,7 +28,6 @@
   <strong>视频:</strong>
 	 	<video class="index_s at_cl_vedio video-js vjs-default-skin"
 					  controls preload="auto" width="421" height="480"
-					  poster="<%= @doing.cover_url(:banner) %>"
 					  data-setup='{"example_option":true}'>
 		 	<source src="<%= @doing.video_url %>" type='<%= @doing.video_type %>' />
 	</video>
@@ -29,7 +36,7 @@
 
 <% if @doing.src %>
 <p>
-  <strong>广告链接:</strong>
+  <strong>广告/视频链接:</strong>
   <%= @doing.src %>
 </p>
 <% end %>

@@ -30,8 +30,19 @@ class Admin::DoingsController < AdminController
 
     respond_to do |format|
       if @doing.save
-        format.html { redirect_to [:admin,@doing], notice: 'Doing was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @doing }
+        if params[:doing][:cover].blank? || @doing.position == "广告"
+          format.html { redirect_to [:admin,@doing], notice: 'Doing was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @doing }
+        else
+          format.html { 
+            if @doing.position == "视频"
+              render :action => "video_crop"
+            else
+              render :action => "crop"
+            end
+          }
+        end
+
       else
         format.html { render action: 'new' }
         format.json { render json: @doing.errors, status: :unprocessable_entity }
@@ -44,8 +55,18 @@ class Admin::DoingsController < AdminController
   def update
     respond_to do |format|
       if @doing.update(doing_params)
-        format.html { redirect_to [:admin,@doing], notice: 'Doing was successfully updated.' }
-        format.json { head :no_content }
+        if params[:doing][:cover].blank? || @doing.position == "广告"
+          format.html { redirect_to [:admin,@doing], notice: 'Doing was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { 
+            if @doing.position == "视频"
+              render :action => "video_crop"
+            else
+              render :action => "crop"
+            end
+          } 
+        end
       else
         format.html { render action: 'edit' }
         format.json { render json: @doing.errors, status: :unprocessable_entity }

@@ -3,21 +3,26 @@
  	<div class="index_show">
   <% if advertise = Doing.advertise_banners.first %>
 	<a href="<%=advertise.src%>" target="_blank">
-		<%= image_tag advertise.cover_url, style: "position:absolute;z-index:999;", width: "1290", height: "480", id: "advertise_pic" %>
+		<%= image_tag advertise.cover.url, style: "position:absolute;z-index:999;", width: "1290", height: "480", id: "advertise_pic" %>
 	</a>
  	<% end %>
  	<a class="show_1" href="#nogo">
  		<% if Doing.left_banners.present? %>
- 		<%= image_tag Doing.left_banners.last.cover_url(:banner) %>
+ 		<%= image_tag Doing.left_banners.last.cover.url(:small) %>
 		<span class="zzjs"><%= Doing.left_banners.last.name %></span>
  		<% end %>
 	</a>
  	<video class="index_s at_cl_vedio video-js vjs-default-skin"
 				  controls preload="auto" width="421" height="480"
-				  poster="<%= Doing.video_banners.last.cover_url(:banner) if Doing.video_banners.present? %>"
+				  poster="<%= Doing.video_banners.last.cover.url(:video) if Doing.video_banners.present? %>"
 				  data-setup='{"example_option":true}'>
 				<% Doing.video_banners.each do |video_banner| %>
-				 	<source src="<%= video_banner.video_url %>" type='<%= video_banner.video_type %>' />
+					<% if video_banner.src.present? %>
+						<source src="<%= video_banner.src %>" type='<%= video_banner.video_type %>' />
+					<% else %>
+						<source src="<%= video_banner.video_url %>" type='<%= video_banner.video_type %>' />
+					<% end %>
+				 	
 		 		<% end %>
 	</video>
 	<% if Doing.video_banners.present? %>
@@ -25,7 +30,7 @@
   <% end %>			
 	<a class="show_1" href="#nogo">
 		<% if Doing.right_banners.present? %>
-      <%= image_tag Doing.right_banners.last.cover_url(:banner) %>
+      <%= image_tag Doing.right_banners.last.cover.url(:small) %>
 	   	<span class="zzj"><%= Doing.right_banners.last.name %></span>
 		<% end %>
 	</a>

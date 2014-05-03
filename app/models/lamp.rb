@@ -2,6 +2,7 @@ class Lamp < ActiveRecord::Base
 
   validates_presence_of :name, :position
 
+  # attached start
   has_attached_file :cover, :styles => { :small => "140x170#", :large => "500x500>" }, :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_cover, :if => :cropping?
@@ -14,6 +15,7 @@ class Lamp < ActiveRecord::Base
     @geometry ||= {}
     @geometry[style] ||= Paperclip::Geometry.from_file(cover.path(style))
   end
+  # attached end
 
   def self.positions
     ["左", "右"]

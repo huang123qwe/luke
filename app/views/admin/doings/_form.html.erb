@@ -11,10 +11,59 @@
   <%= f.input :cover, :input_html => { :class => "btn btn-default" }, label: "图片"  %>  
   <%= f.input :video, :input_html => { :class => "btn btn-default" }, label: "视频"  %>  
   <%= f.input :video_type, collection: Doing.video_types, label: "视频类型"  %> 
-  <%= f.input :src, label: "广告链接"  %>
+  <%= f.input :src, label: "广告/视频链接"  %>
   <%= f.button :wrapped, value: "commit" %>  
 <% end %>
 
-<%= javascript_tag do %>
-  
-<% end %>
+<script type="text/javascript">
+  $(function() {
+
+    function display_banner() {
+      $('div.doing_video').hide();
+      $('div.doing_video_type').hide();
+      $('div.doing_src').hide();
+    }
+
+    function display_advertise() {
+      $('div.doing_video').hide();
+      $('div.doing_video_type').hide();
+      $('div.doing_src').show();
+    }
+
+    function display_video() {
+      $('div.doing_video').show();
+      $('div.doing_video_type').show();
+      $('div.doing_src').show();     
+    }
+
+    $("#doing_position").change(function() {
+      switch(this.value)
+      {
+      case "左":
+        display_banner();
+        break;
+      case "右":
+        display_banner();
+        break;
+      case "广告":
+        display_advertise();
+        break;
+      case "视频":
+        display_video();
+        break;
+      default:
+        display_video();
+      }
+    });
+
+    <% case @doing.position %>
+    <% when "左","右" %>
+      display_banner();
+    <% when "广告" %>
+      display_advertise();
+    <% when "视频" %>
+      display_video();
+    <% end %>
+
+  });
+</script>
