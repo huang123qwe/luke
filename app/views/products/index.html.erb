@@ -13,7 +13,7 @@
 	<div class="list">
 		<%= image_tag product.cover_url(:list_banner), alt: product.title if product.cover %>
 		<div class="l_c">
-	 		<a href="<%= product(product) %>"><span><%= product.title %></span></a>
+	 		<a href="<%= product_url(product) %>"><span><%= product.title %></span></a>
 		 	<p><%= truncate_html(product.content, length: 100, omission: '...') %></p>
 		</div>
  </div>
