@@ -1,5 +1,5 @@
- source 'https://rubygems.org'
-#source 'http://ruby.taobao.org/'
+#source 'https://rubygems.org'
+source 'http://ruby.taobao.org/'
 
 ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -49,7 +49,7 @@ group :assets do
   gem 'jcrop-rails-v2'
 end
 
-gem 'i18n'
+gem 'i18n', github: 'svenfuchs/i18n'
 gem 'rails-i18n', '~> 4.0.0' 
 
 gem 'mina'

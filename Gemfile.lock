@@ -1,5 +1,11 @@
+GIT
+  remote: git://github.com/svenfuchs/i18n.git
+  revision: c532efd6fcfe831c14dd6605642e5084e5f35baa
+  specs:
+    i18n (0.6.9)
+
 GEM
-  remote: https://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     actionmailer (4.1.0)
       actionpack (= 4.1.0)
@@ -65,7 +71,6 @@ GEM
     hike (1.2.3)
     html5shiv-rails (0.0.2)
       railties (>= 3.2.0, < 5.0)
-    i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -199,7 +204,7 @@ DEPENDENCIES
   devise
   execjs
   html5shiv-rails
-  i18n
+  i18n!
   jbuilder (~> 1.2)
   jcrop-rails-v2
   jquery-rails
