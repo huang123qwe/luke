@@ -12,21 +12,26 @@
 		<span class="zzjs"><%= Doing.left_banners.last.name %></span>
  		<% end %>
 	</a>
- 	<video class="index_s at_cl_vedio video-js vjs-default-skin"
-				  controls preload="auto" width="421" height="480"
-				  poster="<%= Doing.video_banners.last.cover.url(:video) if Doing.video_banners.present? %>"
-				  data-setup='{"example_option":true}'>
-				<% Doing.video_banners.each do |video_banner| %>
-					<% if video_banner.src.present? %>
-						<source src="<%= video_banner.src %>" type='<%= video_banner.video_type %>' />
-					<% else %>
-						<source src="<%= video_banner.video_url %>" type='<%= video_banner.video_type %>' />
-					<% end %>
-				 	
-		 		<% end %>
-	</video>
 	<% if Doing.video_banners.present? %>
-  <span class="zzjx"><%= Doing.video_banners.last.name %></span>
+	 	<video class="index_s at_cl_vedio video-js vjs-default-skin"
+					  controls preload="auto" width="421" height="480"
+					  poster="<%= Doing.video_banners.last.cover.url(:video) if Doing.video_banners.present? %>"
+					  data-setup='{"example_option":true}'>
+					<% Doing.video_banners.each do |video_banner| %>
+						<% if video_banner.src.present? %>
+							<source src="<%= video_banner.src %>" type='<%= video_banner.video_type %>' />
+						<% else %>
+							<source src="<%= video_banner.video_url %>" type='<%= video_banner.video_type %>' />
+						<% end %>
+			 		<% end %>
+		</video>
+	  <span class="zzjx"><%= Doing.video_banners.last.name %></span>
+  <% elsif Doing.flash_banners.present? %>
+		<% if Doing.flash_banners.first.present? %>
+			<object width="400" height="480" data="<%= Doing.flash_banners.first.src %>"></object>
+		<% else %>
+			<object width="400" height="480" data="<%= Doing.flash_banners.first.video_url %>"></object>
+		<% end %>
   <% end %>			
 	<a class="show_1" href="#nogo">
 		<% if Doing.right_banners.present? %>

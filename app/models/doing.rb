@@ -7,10 +7,11 @@ class Doing < ActiveRecord::Base
   scope :left_banners, -> { where(position: '左') }
   scope :right_banners, -> { where(position: '右') }
   scope :video_banners, -> { where(position: '视频') }
+  scope :flash_banners, -> { where(position: 'flash') }
   scope :advertise_banners, -> { where(position: '广告') }
 
   def self.positions
-    ["左", "右", "视频","广告"]
+    ["左", "右", "视频", "广告", "flash"]
   end
 
   def self.video_types
