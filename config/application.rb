@@ -23,8 +23,10 @@ module Luke
     config.assets.paths << Rails.root.join('app', 'assets', 'swf')
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
+    config.i18n.enforce_available_locales = false
+    config.i18n.available_locales = ["zh-CN"]
     config.i18n.default_locale = :'zh-CN'
-    I18n.locale = "zh-CN"
+    #I18n.locale = "zh-CN"
 
     #config.i18n.available_locales = "zh-CN"
 
