@@ -22,7 +22,7 @@ set :repository, 'git@github.com:u2/luke.git'
 set :branch, branch
 set :ssh_options, '-A'
 
-set :shared_paths, ['log', 'tmp/restart.txt', 'public/uploads', 'public/robots.txt', 'config/database.yml']
+set :shared_paths, ['log', 'tmp/restart.txt', 'public/uploads','public/system', 'public/robots.txt', 'config/database.yml']
 
 set :user, 'sjyyt'
 set :term_mode, :nil
@@ -48,6 +48,9 @@ task :setup => :environment do
 
   queue! %[mkdir "#{deploy_to}/shared/public/uploads"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/public/uploads"]
+
+  queue! %[mkdir "#{deploy_to}/shared/public/system"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/public/system"]
 
   queue! %[touch "#{deploy_to}/shared/public/robots.txt"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/public/robots.txt"]
