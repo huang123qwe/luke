@@ -205,6 +205,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   jquery_datepicker
+  json
   less-rails
   mina
   mini_magick
