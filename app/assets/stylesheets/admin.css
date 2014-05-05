@@ -7,7 +7,7 @@
  *= require plugins/timeline/timeline.css
  *= require sb-admin.css
 
- *= require jquery-ui-1.8.17.custom.css
+ *= require jquery.ui.all
  *= require jquery-ui-timepicker-addon.css
 
  *= require select2
