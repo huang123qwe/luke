@@ -19,7 +19,7 @@ class Doing < ActiveRecord::Base
   end
 
   # attached start
-  has_attached_file :cover, :styles => { :video => "400x460#", :small => "421x480#", :large => "500x500>" }, :processors => [:cropper]
+  has_attached_file :cover, :styles => { :video => "410x470#", :small => "421x480#", :large => "500x500>" }, :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_cover, :if => :cropping?
   
