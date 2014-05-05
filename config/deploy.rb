@@ -6,7 +6,7 @@ require 'mina/rvm'
 
 environments = {
   'production' => {
-    domain: 'smtp.sjyyt.com',
+    domain: 'git.notes18.com',
     branch: 'master'
   }
 }
@@ -17,17 +17,17 @@ domain = environments[rails_env][:domain]
 
 set :rails_env, rails_env
 set :domain, domain
-set :deploy_to, "/home/sjyyt/deployments/luke"
+set :deploy_to, "/home/andersen/deployments/luke"
 set :repository, 'git@github.com:u2/luke.git'
 set :branch, branch
 set :ssh_options, '-A'
 
 set :shared_paths, ['log', 'tmp/restart.txt', 'public/uploads','public/system', 'public/robots.txt', 'config/database.yml']
 
-set :user, 'sjyyt'
+set :user, 'andersen'
 set :term_mode, :nil
 
-set :rvm_path, '/home/sjyyt/.rvm/bin/rvm'
+set :rvm_path, '/home/andersen/.rvm/bin/rvm'
 
 task :environment do
   invoke :'rvm:use[ruby-2.1.1@default]'
