@@ -1,10 +1,10 @@
-# source 'https://rubygems.org'
-source 'http://ruby.taobao.org/'
+ source 'https://rubygems.org'
+#source 'http://ruby.taobao.org/'
 
-#ruby '2.1.0'
+ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
-gem 'json'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'pg'
@@ -49,6 +49,7 @@ group :assets do
   gem 'jcrop-rails-v2'
 end
 
+gem 'i18n'
 gem 'rails-i18n', '~> 4.0.0' 
 
 gem 'mina'

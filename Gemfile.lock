@@ -1,5 +1,5 @@
 GEM
-  remote: http://ruby.taobao.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.0)
       actionpack (= 4.1.0)
@@ -199,13 +199,13 @@ DEPENDENCIES
   devise
   execjs
   html5shiv-rails
+  i18n
   jbuilder (~> 1.2)
   jcrop-rails-v2
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
   jquery_datepicker
-  json
   less-rails
   mina
   mini_magick
