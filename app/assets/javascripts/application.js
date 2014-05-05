@@ -16,7 +16,6 @@
 //= require jquery-ui-1.10.3.min
 //= require bootstrap.js
 // require turbolinks
-//= require select.js
 //= require video.js
 //= require jquery-ui-timepicker-addon.js
 //= require jquery-ui-timepicker-zh-CN.js
