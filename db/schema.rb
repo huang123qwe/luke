@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(version: 20140503060557) do
 
   create_table "doings", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "position"
+    t.string   "src"
     t.string   "video"
     t.string   "video_type"
-    t.string   "src"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
@@ -93,6 +93,9 @@ ActiveRecord::Schema.define(version: 20140503060557) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "orders", ["product_id"], name: "index_orders_on_product_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: true do |t|
     t.string   "title"
