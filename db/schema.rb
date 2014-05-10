@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510030208) do
+ActiveRecord::Schema.define(version: 20140510061416) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20140510030208) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "top"
+    t.time     "top_at"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -111,6 +113,8 @@ ActiveRecord::Schema.define(version: 20140510030208) do
     t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "top"
+    t.time     "top_at"
   end
 
   create_table "products_articles", force: true do |t|
