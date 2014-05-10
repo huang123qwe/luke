@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503060557) do
+ActiveRecord::Schema.define(version: 20140510030208) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -67,6 +67,12 @@ ActiveRecord::Schema.define(version: 20140503060557) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+  end
+
+  create_table "footers", force: true do |t|
+    t.string "name"
+    t.string "title"
+    t.text   "content"
   end
 
   create_table "lamps", force: true do |t|

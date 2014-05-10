@@ -14,40 +14,79 @@
     })
   })
 </script>
-
-   <div class="about_bd">
-       <div class="well" style="max-width:340px;padding:19px;display:inline-block;">
-          <ul class="nav nav-list" id="mytab" >
-            <li class="nav-header">关于我们</li>
-            <li class="active"><a href="#home" data-toggle="tab">路客的来历</a></li>
-            <li><a href="#library" data-toggle="tab">团队介绍</a></li>
-            <li><a href="#applications" data-toggle="tab">服务宗旨</a></li>
-						<li class="divider"></li>
-            <li class="nav-header">联系我们</li>
-            <li><a href="#settings" data-toggle="tab">介绍</a></li>
-            <li><a href="#profile" data-toggle="tab">参与路客</a></li>
-            <li class="divider"></li>
-            
-            <li><a href="#messages" data-toggle="tab">加入我们</a></li>
-    				<li class="divider"></li>
-    				<li><a href="#help" data-toggle="tab">帮助中心</a></li>
-    				<li><a href="#comment" data-toggle="tab">意见中心</a></li>
-          </ul>
-         </div> 
-         <div class="tab-content" style="width:710px;display:inline-block;vertical-align:top;margin-left:20px;">
-            <div class="tab-pane active" id="home">
-			    <h2>豆瓣的来历</h2>
-			 <p>你经常对着书店里的绵绵不绝的封面发呆吗？或者头晕脑涨地从音像店的琳琅满目中逃出？宽带下载和网上购物降临之后，即使在最小的城镇，你的选择也在每天成百上千地增加。这其中一定有你会喜爱的东西，但十有八九它们会在不知不觉中和你擦肩而过。媒体让老少咸宜的大片无处不在，对只适合一群人的东西却显得力不从心。而且，萝卜青菜，各有所爱，不管电视的娱乐编辑和报纸的书评作家多么公正和勤勉，他们的帮助都不可能对所有人同样有效。</p>
-			 <br/>
-			 <p>豆瓣的发起者发现，对多数人做选择最有效的帮助其实来自亲友和同事。随意的一两句推荐，不但传递了他们自己真实的感受，也包含了对你口味的判断和随之而行的筛选。他们不会向单身汉推荐育儿大全，也不会给老妈带回赤裸特工。遗憾的是，你我所有的亲友加起来，听过看过的仍然有限。而且，口味最类似的人却往往是陌路。</p>
-			</div>
-            <div class="tab-pane" id="library">2222</div>
-            <div class="tab-pane" id="applications">333</div>
-            <div class="tab-pane" id="settings">444.</div>
-            <div class="tab-pane" id="profile">666</div>
-            <div class="tab-pane" id="messages">777</div>
-            <div class="tab-pane" id="help">888</div>
-            <div class="tab-pane" id="comment"></div>
-         </div>		 
-   </div>
+  <div class="about_bd">
+   <div class="well" style="max-width:340px;padding:19px;display:inline-block;">
+      <ul class="nav nav-list" id="mytab" >
+        <!-- <li class="nav-header">关于我们</li> -->
+        <li class="active"><a href="#home" data-toggle="tab">关于我们</a></li>
+        <li><a href="#contact" data-toggle="tab">联系我们</a></li>
+  			<li class="divider"></li>
+        <li><a href="#help" data-toggle="tab">帮助中心</a></li>
+        <li><a href="#view" data-toggle="tab">意见中心</a></li>
+  			<li class="divider"></li>
+  			<li><a href="#member" data-toggle="tab">会员管理</a></li>
+  			<li><a href="#cooperation" data-toggle="tab">合作伙伴</a></li>
+      </ul>
+    </div> 
+   <div class="tab-content" style="width:710px;display:inline-block;vertical-align:top;margin-left:20px;">
+      <% about = Footer.where(name: "关于我们").first %>
+      <% if about %>
+        <div class="tab-pane active" id="home">
+    	     <h2><%= about.title %></h2>
+           <br/>
+           <%= about.content.html_safe %>
+  			</div>
+      <% end %>
+      <div class="tab-pane" id="contact">
+        <% about = Footer.where(name: "联系我们").first %>
+        <% if about %>
+          <div class="tab-pane active" id="home">
+             <h2><%= about.title %></h2>
+             <br/>
+             <%= about.content.html_safe %>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="help">
+        <% about = Footer.where(name: "帮助中心").first %>
+        <% if about %>
+          <div class="tab-pane active" id="home">
+             <h2><%= about.title %></h2>
+             <br/>
+             <%= about.content.html_safe %>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="view">
+        <% about = Footer.where(name: "意见中心").first %>
+        <% if about %>
+          <div class="tab-pane active" id="home">
+             <h2><%= about.title %></h2>
+             <br/>
+             <%= about.content.html_safe %>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="member">
+        <% about = Footer.where(name: "会员管理").first %>
+        <% if about %>
+          <div class="tab-pane active" id="home">
+             <h2><%= about.title %></h2>
+             <br/>
+             <%= about.content.html_safe %>
+          </div>
+        <% end %>
+      </div>
+      <div class="tab-pane" id="cooperation">
+        <% about = Footer.where(name: "合作伙伴").first %>
+        <% if about %>
+          <div class="tab-pane active" id="home">
+             <h2><%= about.title %></h2>
+             <br/>
+             <%= about.content.html_safe %>
+          </div>
+        <% end %>
+      </div>
+    </div>		 
+  </div>
 <% end %>

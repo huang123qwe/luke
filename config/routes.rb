@@ -1,5 +1,7 @@
 Luke::Application.routes.draw do
 
+
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :admins, :controllers => {:registrations => "admin/registrations",
@@ -30,6 +32,7 @@ Luke::Application.routes.draw do
     resources :lamps
     resources :products
     resources :orders
+    resources :footers
   end
 
   # Example of regular route:
