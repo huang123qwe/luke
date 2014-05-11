@@ -3,8 +3,8 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-    @first_article = Article.last
-    @articles = Article.where.not(id: @first_article.id).all if @first_article
+    @first_article = Article.ordered_articles.first
+    @articles = Article.ordered_articles.all[1..-1]
   end
 
   def show

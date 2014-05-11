@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   mount_uploader :cover, ImageUploader
 
-  scope :ordered_articles, order(top_at: :desc, id: :desc).limit(7)
+  scope :ordered_articles, -> { order(top_at: :desc, id: :desc).limit(7) }
 
   has_many :products_articles,:dependent => :destroy
   has_many :products, :through => :products_articles

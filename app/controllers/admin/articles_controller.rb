@@ -6,7 +6,7 @@ class Admin::ArticlesController < AdminController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.ordered_articles.all
   end
 
   # GET /articles/1
