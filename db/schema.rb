@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503023439) do
+ActiveRecord::Schema.define(version: 20140513195224) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -33,10 +33,15 @@ ActiveRecord::Schema.define(version: 20140503023439) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
-    t.string   "cover"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "top"
+    t.time     "top_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -57,13 +62,22 @@ ActiveRecord::Schema.define(version: 20140503023439) do
 
   create_table "doings", force: true do |t|
     t.string   "name"
-    t.string   "cover"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "position"
     t.string   "video"
     t.string   "video_type"
     t.string   "src"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+  end
+
+  create_table "footers", force: true do |t|
+    t.string "name"
+    t.string "title"
+    t.text   "content"
   end
 
   create_table "lamps", force: true do |t|
@@ -94,11 +108,16 @@ ActiveRecord::Schema.define(version: 20140503023439) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.string   "cover"
     t.string   "country"
     t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "top"
+    t.time     "top_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "products_articles", force: true do |t|
