@@ -49,8 +49,11 @@ group :assets do
   gem 'jcrop-rails-v2'
 end
 
-gem 'i18n', github: 'svenfuchs/i18n'
-gem 'rails-i18n', '~> 4.0.0' 
+# gem 'i18n', github: 'svenfuchs/i18n'
+# gem 'rails-i18n', '~> 4.0.0' 
+
+#gem 'i18n', github: 'svenfuchs/i18n'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 
 gem 'mina'
 
