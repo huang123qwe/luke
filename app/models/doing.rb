@@ -18,25 +18,8 @@ class Doing < ActiveRecord::Base
     ["video/mp4", "video/webm", "video/ogg"]
   end
 
+  include ImgCrop
   # attached start
   has_attached_file :cover, :styles => { :video => "410x470#", :small => "421x480#", :large => "500x500>" }, :processors => [:cropper]
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  after_update :reprocess_cover, :if => :cropping?
-  
-  def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
-  end
-  
-  def cover_geometry(style = :original)
-    @geometry ||= {}
-    @geometry[style] ||= Paperclip::Geometry.from_file(cover.path(style))
-  end
-  # attached end
-
-  private
-  
-  def reprocess_cover
-    cover.reprocess!
-  end
 
 end
