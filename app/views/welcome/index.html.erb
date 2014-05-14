@@ -36,7 +36,8 @@
   <% end %>			
 	<a class="show_1" href="#nogo">
 		<% if Doing.right_banners.present? %>
-      <%= image_tag Doing.right_banners.last.cover.url(:small), onclick: "document.location = '#{left_banner.src}'" %>
+			<% right_banner = Doing.right_banners.last %>
+      <%= image_tag Doing.right_banners.last.cover.url(:small), onclick: "document.location = '#{right_banner.src}'" %>
 	   	<span class="zzj"><%= Doing.right_banners.last.name %></span>
 		<% end %>
 	</a>
