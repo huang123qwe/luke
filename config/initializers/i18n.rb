@@ -1,4 +1,4 @@
-# Rails.application.config.time_zone = 'Beijing'
+Rails.application.config.time_zone = 'Beijing'
 
 # Rails.application.config.i18n.default_locale = "zh-CN"
 
