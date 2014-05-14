@@ -2,7 +2,7 @@
 <div class="list_banner">
 	<% if @first_article.present? %>
  	<a href="<%= article_path(@first_article) %>"><span><h1><%= @first_article.title %></h1></span></a>
- 	<%= image_tag @first_article.cover_url(:list_banner), alt: @first_article.title if @first_article.cover %>
+ 	<%= image_tag @first_article.cover.url(:small), alt: @first_article.title if @first_article.cover %>
  	<p>
  		<%= truncate_html(@first_article.content, length: 100, omission: '...') %>
  	</p>
@@ -11,7 +11,7 @@
 <div class="list_body">
 	<% @articles.each do |article| %>
 	<div class="list">
-		<%= image_tag article.cover_url(:list_banner), alt: article.title if article.cover %>
+		<%= image_tag article.cover.url(:small), alt: article.title if article.cover %>
 		<div class="l_c">
 			<a href="<%= article_path(article) %>"><span><%= article.title %></span></a>
 		 	<p><%= truncate_html(article.content, length: 100, omission: '...') %></p>

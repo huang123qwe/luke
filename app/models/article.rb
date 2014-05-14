@@ -1,5 +1,4 @@
 class Article < ActiveRecord::Base
-  mount_uploader :cover, ImageUploader
 
   scope :ordered_articles, -> { order("top_at DESC nulls last, top DESC nulls last").limit(7) }
 
@@ -7,6 +6,10 @@ class Article < ActiveRecord::Base
   has_many :products, :through => :products_articles
 
   before_save :set_top_at
+
+  include ImgCrop
+  # attached start
+  has_attached_file :cover, :styles => { :small => "330x175#", :large => "500x500>" }, :processors => [:cropper]
 
   private
 

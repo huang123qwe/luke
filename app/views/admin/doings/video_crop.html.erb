@@ -3,14 +3,14 @@ $(function() {
   $('#cropbox').Jcrop({
     onChange: update_crop,
     onSelect: update_crop,
-    setSelect: [0, 0, 800, 800],
+    setSelect: [0, 0, 410, 470],
     aspectRatio: 410/470
   });
 });
 
 function update_crop(coords) {
-  var rx = 200/coords.w;
-  var ry = 200/coords.h;
+  var rx = 410/coords.w;
+  var ry = 470/coords.h;
   $('#preview').css({
     width: Math.round(rx * <%= @doing.cover_geometry(:large).width %>) + 'px',
     height: Math.round(ry * <%= @doing.cover_geometry(:large).height %>) + 'px',
@@ -28,8 +28,8 @@ function update_crop(coords) {
 <%= image_tag @doing.cover.url(:large), :id => "cropbox" %>
 
 <h4>预览:</h4>
-<div style="width:200px; height:200px; overflow:hidden">
-  <%= image_tag @doing.cover.url(:large), :id => "preview" %>
+<div style="width:410px; height:470px; overflow:hidden">
+  <%= image_tag @doing.cover.url(:video), :id => "preview" %>
 </div>
 
 <br/>

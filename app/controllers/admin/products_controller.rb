@@ -34,8 +34,14 @@ class Admin::ProductsController < AdminController
         Article.where(id: article_ids).each do |t|
           ProductsArticle.create(article_id: t.id, product_id: @product.id)
         end
-        format.html { redirect_to [:admin, @product], notice: 'Product was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @product }
+        if params[:product][:cover].blank?
+          format.html { redirect_to [:admin, @product], notice: 'Product was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @product }
+        else
+          format.html {
+            render :action => "crop"
+          }
+        end
       else
         format.html { render action: 'new' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -57,8 +63,15 @@ class Admin::ProductsController < AdminController
           ProductsArticle.where(article_id: t.id, product_id: @product.id).first_or_create
         end
 
-        format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
-        format.json { head :no_content }
+        if params[:product][:cover].blank?
+          format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html {
+            render :action => "crop"
+          }     
+        end
+
       else
         format.html { render action: 'edit' }
         format.json { render json: @product.errors, status: :unprocessable_entity }

@@ -3,14 +3,14 @@ $(function() {
   $('#cropbox').Jcrop({
     onChange: update_crop,
     onSelect: update_crop,
-    setSelect: [0, 0, 500, 500],
+    setSelect: [0, 0, 140, 170],
     aspectRatio: 140/170
   });
 });
 
 function update_crop(coords) {
-  var rx = 100/coords.w;
-  var ry = 100/coords.h;
+  var rx = 140/coords.w;
+  var ry = 170/coords.h;
   $('#preview').css({
     width: Math.round(rx * <%= @lamp.cover_geometry(:large).width %>) + 'px',
     height: Math.round(ry * <%= @lamp.cover_geometry(:large).height %>) + 'px',
@@ -28,8 +28,8 @@ function update_crop(coords) {
 <%= image_tag @lamp.cover.url(:large), :id => "cropbox" %>
 
 <h4>Preview:</h4>
-<div style="width:100px; height:100px; overflow:hidden">
-  <%= image_tag @lamp.cover.url(:large), :id => "preview" %>
+<div style="width:140px; height:170px; overflow:hidden">
+  <%= image_tag @lamp.cover.url(:small), :id => "preview" %>
 </div>
 
 <br/>
