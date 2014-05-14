@@ -1,22 +1,23 @@
 <% content_for :content do %>
-<div class="list_banner">
-	<% if @first_article.present? %>
- 	<a href="<%= article_path(@first_article) %>"><span><h1><%= @first_article.title %></h1></span></a>
- 	<%= image_tag @first_article.cover.url(:small), alt: @first_article.title if @first_article.cover %>
- 	<p>
- 		<%= truncate_html(@first_article.content, length: 100, omission: '...') %>
- 	</p>
- 	<% end %>
-</div>
-<div class="list_body">
-	<% @articles.each do |article| %>
-	<div class="list">
-		<%= image_tag article.cover.url(:small), alt: article.title if article.cover %>
-		<div class="l_c">
-			<a href="<%= article_path(article) %>"><span><%= article.title %></span></a>
-		 	<p><%= truncate_html(article.content, length: 100, omission: '...') %></p>
-		</div>
- </div>
- <% end if @articles %>
-</div>
+	<div class="list_banner">
+		<% if @first_article.present? %>
+	 	<a href="<%= article_path(@first_article) %>"><span><h1><%= @first_article.title %></h1></span></a>
+	 		<%= image_tag @first_article.top_cover.url(:small), alt: @first_article.title if @first_article.top_cover %>
+	 	<p>
+	 		<%= truncate_html(@first_article.content, length: 300, omission: '...') %>
+	 	</p>
+	 	<% end %>
+	</div>
+
+	<div class="list_body">
+		<% @articles.each do |article| %>
+		<div class="list">
+			<%= image_tag article.cover.url(:small), alt: article.title if article.cover %>
+			<div class="l_c">
+				<a href="<%= article_path(article) %>"><span><h2><%= article.title %></h2></span></a><br/>
+			 	<p><%= truncate_html(article.content, length: 250, omission: '...') %></p>
+			</div>
+	 </div>
+	 <% end if @articles %>
+	</div>
 <% end %>

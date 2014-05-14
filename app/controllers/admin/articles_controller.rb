@@ -74,7 +74,11 @@ class Admin::ArticlesController < AdminController
         end
 
         if @article.cropping?
-          @article.cover.reprocess!
+          if params[:article][:top]
+            @article.top_cover.reprocess!
+          else
+            @article.cover.reprocess!
+          end
         end
 
         if params[:article][:top_cover].present?
@@ -114,6 +118,6 @@ class Admin::ArticlesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :cover, :content, :top, :crop_x, :crop_y, :crop_w, :crop_h)
+      params.require(:article).permit(:title, :cover, :content, :top, :top_cover, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

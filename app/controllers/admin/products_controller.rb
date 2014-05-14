@@ -37,13 +37,17 @@ class Admin::ProductsController < AdminController
             ProductsArticle.create(article_id: t.id, product_id: @product.id)
           end
         end
-        if params[:product][:cover].blank?
-          format.html { redirect_to [:admin, @product], notice: 'Product was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @product }
-        else
+        if params[:product][:top_cover].present?
+          format.html {
+            render :action => "top_cover_crop"
+          }
+        elsif params[:product][:cover].present?
           format.html {
             render :action => "crop"
           }
+        else
+          format.html { redirect_to [:admin, @product], notice: 'Product was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @product }
         end
       else
         format.html { render action: 'new' }
@@ -68,16 +72,24 @@ class Admin::ProductsController < AdminController
         end
 
         if @product.cropping?
-          @product.cover.reprocess!
+          if params[:product][:top]
+            @product.top_cover.reprocess!
+          else
+            @product.cover.reprocess!
+          end
         end
 
-        if params[:product][:cover].blank?
-          format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
-          format.json { head :no_content }
-        else
+        if params[:product][:top_cover].present?
+          format.html {
+            render :action => "top_cover_crop"
+          }
+        elsif params[:product][:cover].present?
           format.html {
             render :action => "crop"
           }     
+        else
+          format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
+          format.json { head :no_content }
         end
 
       else
@@ -105,6 +117,6 @@ class Admin::ProductsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :content, :cover, :country, :city, :crop_x, :crop_y, :crop_w, :crop_h)
+      params.require(:product).permit(:title, :content, :cover, :country, :city, :top, :top_cover, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

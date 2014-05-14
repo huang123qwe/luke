@@ -37,17 +37,17 @@
 	   	<div class="f_dis f_1">	
 	      <div>			
 			   	<ul>
-						<li><%= link_to "关于我们", about_path %></li>
-						<li><%= link_to "联系我们", about_path %></a></li>
+						<li><%= link_to "关于我们", about_path(tab: :home) %></li>
+						<li><%= link_to "联系我们", about_path(tab: :contact) %></a></li>
 			   	</ul>
 				</div>
 			</div>
 			<div class="f_1">
 				<ul>
-					<li><%= link_to "关于我们", about_path %></li>
-					<li><%= link_to "联系我们", about_path %></li>
-					<li><%= link_to "会员管理", about_path %></li>
-					<li><%= link_to "合作伙伴", about_path %></li>
+					<li><%= link_to "帮助中心", about_path(tab: :help) %></li>
+					<li><%= link_to "意见中心", about_path(tab: :view) %></li>
+					<li><%= link_to "会员管理", about_path(tab: :member) %></li>
+					<li><%= link_to "合作伙伴", about_path(tab: :cooperation) %></li>
 				</ul>
 			</div>
 			<div class="f_1">

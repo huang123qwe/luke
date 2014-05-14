@@ -7,7 +7,17 @@
 
 <p>
   <strong>封面:</strong>
-  <%= image_tag @product.cover.url(:small) %>
+  <%= image_tag @product.cover.url(:small) if @product.cover %>
+</p>
+
+<p>
+  <strong>置顶:</strong>
+  <%= @product.top %>
+</p>
+
+<p>
+  <strong>置顶图:</strong>
+  <%= image_tag @product.top_cover.url(:small) if @product.top_cover %>
 </p>
 
 <p>

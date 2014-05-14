@@ -12,12 +12,12 @@ function update_crop(coords) {
   var rx = 630/coords.w;
   var ry = 260/coords.h;
   $('#preview').css({
-    width: Math.round(rx * <%= @article.top_cover_geometry(:large).width %>) + 'px',
-    height: Math.round(ry * <%= @article.top_cover_geometry(:large).height %>) + 'px',
+    width: Math.round(rx * <%= @product.top_cover_geometry(:large).width %>) + 'px',
+    height: Math.round(ry * <%= @product.top_cover_geometry(:large).height %>) + 'px',
     marginLeft: '-' + Math.round(rx * coords.x) + 'px',
     marginTop: '-' + Math.round(ry * coords.y) + 'px'
   });
-  var ratio = <%= @article.top_cover_geometry(:original).width %> / <%= @article.top_cover_geometry(:large).width %>;
+  var ratio = <%= @product.top_cover_geometry(:original).width %> / <%= @product.top_cover_geometry(:large).width %>;
   $("#crop_x").val(Math.round(coords.x * ratio));
   $("#crop_y").val(Math.round(coords.y * ratio));
   $("#crop_w").val(Math.round(coords.w * ratio));
@@ -25,19 +25,19 @@ function update_crop(coords) {
 }
 </script>
 
-<%= image_tag @article.top_cover.url(:large), :id => "cropbox" %>
+<%= image_tag @product.top_cover.url(:large), :id => "cropbox" %>
 
 <h4>预览:</h4>
 <div style="width:630px; height:260px; overflow:hidden">
-  <%= image_tag @article.top_cover.url(:large), :id => "preview" %>
+  <%= image_tag @product.top_cover.url(:large), :id => "preview" %>
 </div>
 
 <br/>
 
-<%= form_for [:admin, @article] do |f| %>
+<%= form_for [:admin, @product] do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>
-  <%= f.hidden_field :top, value: @article.top %>
+  <%= f.hidden_field :top, value: @product.top %>
   <p><%= f.submit "裁剪" %></p>
 <% end %>

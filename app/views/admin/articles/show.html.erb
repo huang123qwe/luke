@@ -7,7 +7,7 @@
 
 <p>
   <strong>封面:</strong>
-  <%= image_tag @article.cover.url(:small) %>
+  <%= image_tag @article.cover.url(:small) if @article.cover %>
 </p>
 
 <p>
@@ -15,10 +15,10 @@
   <%= @article.top %>
 </p>
 
-<!-- <p>
+<p>
   <strong>置顶图:</strong>
-  <%#= image_tag @article.top_cover.url(:small) %>
-</p> -->
+  <%= image_tag @article.top_cover.url(:small) if @article.top_cover %>
+</p>
 
 <p>
   <strong>置顶时间:</strong>

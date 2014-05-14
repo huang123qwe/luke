@@ -2,6 +2,8 @@
 
   <%= f.input :title, label: "标题" %>
   <%= f.input :cover, label: "封面" %>
+  <%= f.input :top, label: "置顶", :input_html => { class: "" } %>
+  <%= f.input :top_cover, label: "置顶图片" %>
   <%= f.input :country, label: "国家", as: :string %>
   <%= f.input :city, label: "城市", as: :string %>
   <%= f.association :articles, collection: Article.all, label: '相关文章' %>

@@ -1,90 +1,80 @@
 <% content_for :content do %>
-<script type="text/javascript">
-  $(function () {
-    var log = function(s){
-      window.console && console.log(s)
-    }
-    $('.nav-tabs a:last').tab('show')
-    $('a[data-toggle="tab"]').on('show', function (e) {
-      log(e)
+  <script type="text/javascript">
+    $(function () {
+      var log = function(s){
+        window.console && console.log(s)
+      }
+      $('.nav-tabs a:last').tab('show')
+      $('a[data-toggle="tab"]').on('show', function (e) {
+        log(e)
+      })
+      $('a[data-toggle="tab"]').on('shown', function (e) {
+      	log(e.target) // activated tab
+        log(e.relatedTarget) // previous tab
+      })
     })
-    $('a[data-toggle="tab"]').on('shown', function (e) {
-    	log(e.target) // activated tab
-      log(e.relatedTarget) // previous tab
-    })
-  })
-</script>
+  </script>
   <div class="about_bd">
    <div class="well" style="max-width:340px;padding:19px;display:inline-block;">
       <ul class="nav nav-list" id="mytab" >
         <!-- <li class="nav-header">关于我们</li> -->
-        <li class="active"><a href="#home" data-toggle="tab">关于我们</a></li>
-        <li><a href="#contact" data-toggle="tab">联系我们</a></li>
+        <li class="<%= 'active' if params[:tab] == 'home' %>"><a href="#home" data-toggle="tab">关于我们</a></li>
+        <li class="<%= 'active' if params[:tab] == 'contact' %>"><a href="#contact" data-toggle="tab">联系我们</a></li>
   			<li class="divider"></li>
-        <li><a href="#help" data-toggle="tab">帮助中心</a></li>
-        <li><a href="#view" data-toggle="tab">意见中心</a></li>
+        <li class="<%= 'active' if params[:tab] == 'help' %>"><a href="#help" data-toggle="tab">帮助中心</a></li>
+        <li class="<%= 'active' if params[:tab] == 'view' %>"><a href="#view" data-toggle="tab">意见中心</a></li>
   			<li class="divider"></li>
-  			<li><a href="#member" data-toggle="tab">会员管理</a></li>
-  			<li><a href="#cooperation" data-toggle="tab">合作伙伴</a></li>
+  			<li class="<%= 'active' if params[:tab] == 'member' %>"><a href="#member" data-toggle="tab">会员管理</a></li>
+  			<li class="<%= 'active' if params[:tab] == 'cooperation' %>"><a href="#cooperation" data-toggle="tab">合作伙伴</a></li>
       </ul>
     </div> 
    <div class="tab-content" style="width:710px;display:inline-block;vertical-align:top;margin-left:20px;">
       <% about = Footer.where(name: "关于我们").first %>
       <% if about %>
-        <div class="tab-pane active" id="home">
+        <div class="tab-pane <%= 'active' if params[:tab] == 'home' %>" id="home">
     	     <h2><%= about.title %></h2>
            <br/>
            <%= about.content.html_safe %>
   			</div>
       <% end %>
-      <div class="tab-pane" id="contact">
+      <div class="tab-pane <%= 'active' if params[:tab] == 'contact' %>" id="contact">
         <% about = Footer.where(name: "联系我们").first %>
         <% if about %>
-          <div class="tab-pane active" id="home">
              <h2><%= about.title %></h2>
              <br/>
              <%= about.content.html_safe %>
-          </div>
         <% end %>
       </div>
-      <div class="tab-pane" id="help">
+      <div class="tab-pane <%= 'active' if params[:tab] == 'help' %>" id="help">
         <% about = Footer.where(name: "帮助中心").first %>
         <% if about %>
-          <div class="tab-pane active" id="home">
              <h2><%= about.title %></h2>
              <br/>
              <%= about.content.html_safe %>
-          </div>
         <% end %>
       </div>
-      <div class="tab-pane" id="view">
+      <div class="tab-pane  <%= 'active' if params[:tab] == 'view' %>" id="view">
         <% about = Footer.where(name: "意见中心").first %>
         <% if about %>
-          <div class="tab-pane active" id="home">
              <h2><%= about.title %></h2>
              <br/>
              <%= about.content.html_safe %>
-          </div>
         <% end %>
       </div>
-      <div class="tab-pane" id="member">
+      <div class="tab-pane <%= 'active' if params[:tab] == 'member' %>" id="member">
         <% about = Footer.where(name: "会员管理").first %>
         <% if about %>
-          <div class="tab-pane active" id="home">
              <h2><%= about.title %></h2>
              <br/>
              <%= about.content.html_safe %>
-          </div>
         <% end %>
       </div>
-      <div class="tab-pane" id="cooperation">
+      <div class="tab-pane <%= 'active' if params[:tab] == 'cooperation' %>" id="cooperation">
         <% about = Footer.where(name: "合作伙伴").first %>
         <% if about %>
-          <div class="tab-pane active" id="home">
              <h2><%= about.title %></h2>
              <br/>
              <%= about.content.html_safe %>
-          </div>
         <% end %>
       </div>
     </div>		 
