@@ -31,9 +31,13 @@ class Admin::ArticlesController < AdminController
 
     respond_to do |format|
       if @article.save
-        Product.where(id: product_ids).each do |t|
-          ProductsArticle.create(product_id: t.id, article_id: @article.id)
+
+        if !product_ids.nil?
+          Product.where(id: product_ids).each do |t|
+            ProductsArticle.create(product_id: t.id, article_id: @article.id)
+          end
         end
+        
         if params[:article][:cover].blank?
           format.html { redirect_to [:admin, @article], notice: 'Article was successfully created.' }
           format.json { render action: 'show', status: :created, location: @article }
@@ -57,11 +61,14 @@ class Admin::ArticlesController < AdminController
     respond_to do |format|
       if @article.update(article_params)
         # set null for pre-group
-        ProductsArticle.where.not(product_id: product_ids).where(article_id: @article.id).destroy_all
+        if !product_ids.nil?
+          ProductsArticle.where.not(product_id: product_ids).where(article_id: @article.id).destroy_all
 
-        Product.where(id: product_ids).each do |t|
-          ProductsArticle.where(product_id: t.id, article_id: @article.id).first_or_create
+          Product.where(id: product_ids).each do |t|
+            ProductsArticle.where(product_id: t.id, article_id: @article.id).first_or_create
+          end
         end
+
         if params[:article][:cover].blank?
           format.html { redirect_to [:admin, @article], notice: 'Article was successfully updated.' }
           format.json { head :no_content }

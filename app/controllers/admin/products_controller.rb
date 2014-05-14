@@ -31,8 +31,11 @@ class Admin::ProductsController < AdminController
 
     respond_to do |format|
       if @product.save
-        Article.where(id: article_ids).each do |t|
-          ProductsArticle.create(article_id: t.id, product_id: @product.id)
+
+        if !article_ids.nil?
+          Article.where(id: article_ids).each do |t|
+            ProductsArticle.create(article_id: t.id, product_id: @product.id)
+          end
         end
         if params[:product][:cover].blank?
           format.html { redirect_to [:admin, @product], notice: 'Product was successfully created.' }
@@ -55,12 +58,13 @@ class Admin::ProductsController < AdminController
     article_ids = params[:product].delete(:article_ids)
     respond_to do |format|
       if @product.update(product_params)
+        if !article_ids.nil?
+          # set null for pre-group
+          ProductsArticle.where.not(article_id: article_ids).where(product_id: @product.id).destroy_all
 
-        # set null for pre-group
-        ProductsArticle.where.not(article_id: article_ids).where(product_id: @product.id).destroy_all
-
-        Article.where(id: article_ids).each do |t|
-          ProductsArticle.where(article_id: t.id, product_id: @product.id).first_or_create
+          Article.where(id: article_ids).each do |t|
+            ProductsArticle.where(article_id: t.id, product_id: @product.id).first_or_create
+          end
         end
 
         if params[:product][:cover].blank?
