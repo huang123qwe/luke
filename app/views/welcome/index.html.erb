@@ -8,8 +8,9 @@
  	<% end %>
  	<a class="show_1" href="#nogo">
  		<% if Doing.left_banners.present? %>
- 		<%= image_tag Doing.left_banners.last.cover.url(:small) %>
-		<span class="zzjs"><%= Doing.left_banners.last.name %></span>
+ 			<% left_banner = Doing.left_banners.last %>
+	 		<%= image_tag Doing.left_banners.last.cover.url(:small), onclick: "document.location = '#{left_banner.src}'" %>
+			<span class="zzjs"><%= Doing.left_banners.last.name %></span>
  		<% end %>
 	</a>
 	<% if Doing.video_banners.present? %>
@@ -35,7 +36,7 @@
   <% end %>			
 	<a class="show_1" href="#nogo">
 		<% if Doing.right_banners.present? %>
-      <%= image_tag Doing.right_banners.last.cover.url(:small) %>
+      <%= image_tag Doing.right_banners.last.cover.url(:small), onclick: "document.location = '#{left_banner.src}'" %>
 	   	<span class="zzj"><%= Doing.right_banners.last.name %></span>
 		<% end %>
 	</a>

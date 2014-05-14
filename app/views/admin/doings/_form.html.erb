@@ -12,7 +12,7 @@
   <%= f.input :cover, :input_html => { :class => "btn btn-default" }, label: "图片"  %>  
   <%= f.input :video, :input_html => { :class => "btn btn-default" }, label: "视频"  %>  
   <%= f.input :video_type, collection: Doing.video_types, label: "视频类型"  %> 
-  <%= f.input :src, label: "广告/视频/flash链接"  %>
+  <%= f.input :src, label: "链接"  %>
   <%= f.button :wrapped, value: "commit" %>  
 <% end %>
 
@@ -22,25 +22,22 @@
     function display_banner() {
       $('div.doing_video').hide();
       $('div.doing_video_type').hide();
-      $('div.doing_src').hide();
+
     }
 
     function display_advertise() {
       $('div.doing_video').hide();
       $('div.doing_video_type').hide();
-      $('div.doing_src').show();
     }
 
     function display_video() {
       $('div.doing_video').show();
       $('div.doing_video_type').show();
-      $('div.doing_src').show();     
     }
 
     function display_flash() {
       $('div.doing_video').show();
       $('div.doing_video_type').hide();
-      $('div.doing_src').show();     
     }
 
     $("#doing_position").change(function() {
