@@ -3,6 +3,7 @@
     <li>位置左/右分别代表主页左/右的两个大图片，需要上传图片。</li>
     <li>位置中代表首页的视频，需要上传视频，并添加视频类型。</li>
     <li>位置广告代表首页的广告，需要上传广告图片，并添加广告链接。</li>
+    <li>广告链接格式必须为http://www.brp.ch/fr/accueil.html</li>
   </ul>
 </div>
 <%= simple_form_for [:admin, @doing], :defaults => { :input_html => { :class => "form-control" } }, html: { multipart: true, class: 'form-horizontal' } do |f| %>  

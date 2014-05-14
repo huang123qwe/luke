@@ -9,5 +9,5 @@ class Lamp < ActiveRecord::Base
   include ImgCrop
   # attached start
   has_attached_file :cover, :styles => { :small => "140x170#", :large => "500x500>" }, :processors => [:cropper]
-
+  validates_attachment_content_type :cover, :content_type => /\Aimage/
 end

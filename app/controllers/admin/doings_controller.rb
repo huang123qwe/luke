@@ -55,6 +55,11 @@ class Admin::DoingsController < AdminController
   def update
     respond_to do |format|
       if @doing.update(doing_params)
+
+        if @doing.cropping?
+          @doing.cover.reprocess!
+        end
+
         if params[:doing][:cover].blank? || @doing.position == "广告"
           format.html { redirect_to [:admin,@doing], notice: 'Doing was successfully updated.' }
           format.json { head :no_content }
@@ -92,6 +97,6 @@ class Admin::DoingsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doing_params
-      params.require(:doing).permit(:name, :cover, :position, :video, :video_type, :src)
+      params.require(:doing).permit(:name, :cover, :position, :video, :video_type, :src, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

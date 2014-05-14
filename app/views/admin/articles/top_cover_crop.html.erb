@@ -3,21 +3,21 @@ $(function() {
   $('#cropbox').Jcrop({
     onChange: update_crop,
     onSelect: update_crop,
-    setSelect: [0, 0, 421, 480],
-    aspectRatio: 421/480
+    setSelect: [0, 0, 630, 260],
+    aspectRatio: 630/260
   });
 });
 
 function update_crop(coords) {
-  var rx = 421/coords.w;
-  var ry = 480/coords.h;
+  var rx = 630/coords.w;
+  var ry = 260/coords.h;
   $('#preview').css({
-    width: Math.round(rx * <%= @doing.cover_geometry(:large).width %>) + 'px',
-    height: Math.round(ry * <%= @doing.cover_geometry(:large).height %>) + 'px',
+    width: Math.round(rx * <%= @article.cover_geometry(:large).width %>) + 'px',
+    height: Math.round(ry * <%= @article.cover_geometry(:large).height %>) + 'px',
     marginLeft: '-' + Math.round(rx * coords.x) + 'px',
     marginTop: '-' + Math.round(ry * coords.y) + 'px'
   });
-  var ratio = <%= @doing.cover_geometry(:original).width %> / <%= @doing.cover_geometry(:large).width %>;
+  var ratio = <%= @article.cover_geometry(:original).width %> / <%= @article.cover_geometry(:large).width %>;
   $("#crop_x").val(Math.round(coords.x * ratio));
   $("#crop_y").val(Math.round(coords.y * ratio));
   $("#crop_w").val(Math.round(coords.w * ratio));
@@ -25,16 +25,16 @@ function update_crop(coords) {
 }
 </script>
 
-<%= image_tag @doing.cover.url(:large), :id => "cropbox" %>
+<%= image_tag @article.top_cover.url(:large), :id => "cropbox" %>
 
 <h4>预览:</h4>
-<div style="width:421px; height:480px; overflow:hidden">
-  <%= image_tag @doing.cover.url(:large), :id => "preview" %>
+<div style="width:630px; height:260px; overflow:hidden">
+  <%= image_tag @article.top_cover.url(:small), :id => "preview" %>
 </div>
 
 <br/>
 
-<%= form_for [:admin, @doing] do |f| %>
+<%= form_for [:admin, @article] do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>

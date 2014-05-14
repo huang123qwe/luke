@@ -67,6 +67,10 @@ class Admin::ProductsController < AdminController
           end
         end
 
+        if @product.cropping?
+          @product.cover.reprocess!
+        end
+
         if params[:product][:cover].blank?
           format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
           format.json { head :no_content }
@@ -101,6 +105,6 @@ class Admin::ProductsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :content, :cover, :country, :city)
+      params.require(:product).permit(:title, :content, :cover, :country, :city, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

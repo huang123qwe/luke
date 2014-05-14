@@ -38,13 +38,17 @@ class Admin::ArticlesController < AdminController
           end
         end
         
-        if params[:article][:cover].blank?
-          format.html { redirect_to [:admin, @article], notice: 'Article was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @article }
-        else
+        if params[:article][:top_cover].present?
+          format.html {
+            render :action => "top_cover_crop"
+          }
+        elsif params[:article][:cover].present?
           format.html {
             render :action => "crop"
           }
+        else
+          format.html { redirect_to [:admin, @article], notice: 'Article was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @article }
         end
 
       else
@@ -69,13 +73,21 @@ class Admin::ArticlesController < AdminController
           end
         end
 
-        if params[:article][:cover].blank?
-          format.html { redirect_to [:admin, @article], notice: 'Article was successfully updated.' }
-          format.json { head :no_content }
-        else
+        if @article.cropping?
+          @article.cover.reprocess!
+        end
+
+        if params[:article][:top_cover].present?
+          format.html {
+            render :action => "top_cover_crop"
+          }          
+        elsif params[:article][:cover].present?
           format.html {
             render :action => "crop"
           }          
+        else
+          format.html { redirect_to [:admin, @article], notice: 'Article was successfully updated.' }
+          format.json { head :no_content }
         end
       else
         format.html { render action: 'edit' }
@@ -102,6 +114,6 @@ class Admin::ArticlesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :cover, :content, :top)
+      params.require(:article).permit(:title, :cover, :content, :top, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

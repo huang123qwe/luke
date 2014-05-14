@@ -1,8 +1,14 @@
+<div class="alert alert-info">
+  <ul>
+    <li>置顶文章需要上传置顶图片。</li>
+  </ul>
+</div>
 <%= simple_form_for [:admin, @article], :defaults => { :input_html => { :class => "form-control" } }, html: { multipart: true, class: 'form-horizontal' } do |f| %> 
 
   <%= f.input :title, label: "标题" %>
   <%= f.input :cover, label: "封面" %>
   <%= f.input :top, label: "置顶", :input_html => { class: "" } %>
+  <%#= f.input :top_cover, label: "置顶图片" %>
   <%= f.association :products, collection: Product.all, label: '相关产品' %>
   <%= f.input_field :content, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
 

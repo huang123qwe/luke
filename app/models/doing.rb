@@ -21,5 +21,6 @@ class Doing < ActiveRecord::Base
   include ImgCrop
   # attached start
   has_attached_file :cover, :styles => { :video => "410x470#", :small => "421x480#", :large => "500x500>" }, :processors => [:cropper]
-
+  validates_attachment_content_type :cover, :content_type => /\Aimage/
+  
 end

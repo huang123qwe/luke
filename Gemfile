@@ -60,7 +60,7 @@ gem 'mina'
 gem 'sidekiq'
 
 gem 'carrierwave'
-gem 'paperclip', '~> 3.0'
+gem "paperclip", "~> 4.1"
 # gem 'rmagick'
 gem 'mini_magick'
 
