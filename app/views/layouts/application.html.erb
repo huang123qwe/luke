@@ -27,7 +27,7 @@
 		<%= image_tag "English.png", alt: "English_version", class: "english" %>
 	</div>
 	<div class="logo">
-		<%= image_tag "logo.png", alt: "路克海外深度游" %>
+		<%= link_to (image_tag "logo.png", alt: "路克海外深度游"), root_path %>
 	</div>
 
 	<%= content_for?(:content) ? yield(:content) : yield %>
