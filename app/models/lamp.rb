@@ -10,6 +10,6 @@ class Lamp < ActiveRecord::Base
   # attached start
   has_attached_file :cover, :styles => { :small => "140x170#", :large => "500x500>" }, :processors => [:cropper]
   validates_attachment_content_type :cover, :content_type => /\Aimage/
-  validates_attachment :cover, :size => { :in => 0..2.megabytes }
+  validates_attachment :cover, :size => { :in => 0..500.kilobytes }
 
 end
