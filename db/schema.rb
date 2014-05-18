@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514024817) do
+ActiveRecord::Schema.define(version: 20140518021727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140514024817) do
     t.string   "top_cover_content_type"
     t.integer  "top_cover_file_size"
     t.datetime "top_cover_updated_at"
+    t.string   "category"
   end
 
   create_table "ckeditor_assets", force: true do |t|

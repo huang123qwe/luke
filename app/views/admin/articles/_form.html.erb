@@ -6,6 +6,7 @@
 <%= simple_form_for [:admin, @article], :defaults => { :input_html => { :class => "form-control" } }, html: { multipart: true, class: 'form-horizontal' } do |f| %> 
 
   <%= f.input :title, label: "标题" %>
+  <%= f.input :category, label: "类别", collection: Article::CATEGORIES %>
   <%= f.input :cover, label: "封面", hint: "图片大小必须小于500k, 宽高比为330x175" %>
   <%= f.input :top, label: "置顶", :input_html => { class: "" } %>
   <%= f.input :top_cover, label: "置顶图片", hint: "图片大小必须小于800k, 宽高比为630x260" %>

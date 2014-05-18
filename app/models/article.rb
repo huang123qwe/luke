@@ -7,6 +7,8 @@ class Article < ActiveRecord::Base
 
   before_save :set_top_at
 
+  CATEGORIES = %w{ 酒店 咨询 去干吗 去哪里 }
+
   include ImgCrop
   # attached start
   has_attached_file :cover, :styles => { :small => "330x175#", :large => "800x800>" }, :processors => [:cropper]
