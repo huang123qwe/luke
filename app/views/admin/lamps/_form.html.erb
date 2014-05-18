@@ -2,7 +2,7 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :cover, :input_html => { :class => "btn btn-default" } %>
+    <%= f.input :cover, :input_html => { :class => "btn btn-default" }, hint: "图片大小必须小于2M, 宽高比为140×170" %>
     <%= f.input :position, collection: Lamp.positions %>
   </div>
 

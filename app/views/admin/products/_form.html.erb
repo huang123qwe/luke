@@ -1,9 +1,9 @@
 <%= simple_form_for [:admin, @product], :defaults => { :input_html => { :class => "form-control" } }, html: { multipart: true, class: 'form-horizontal' } do |f| %> 
 
   <%= f.input :title, label: "标题" %>
-  <%= f.input :cover, label: "封面" %>
+  <%= f.input :cover, label: "封面", hint: "图片大小必须小于2M, 宽高比为330x175" %>
   <%= f.input :top, label: "置顶", :input_html => { class: "" } %>
-  <%= f.input :top_cover, label: "置顶图片" %>
+  <%= f.input :top_cover, label: "置顶图片", hint: "图片大小必须小于3M, 宽高比为630x260" %>
   <%= f.input :country, label: "国家", as: :string %>
   <%= f.input :city, label: "城市", as: :string %>
   <%= f.association :articles, collection: Article.all, label: '相关文章' %>

@@ -22,5 +22,6 @@ class Doing < ActiveRecord::Base
   # attached start
   has_attached_file :cover, :styles => { :video => "410x470#", :small => "421x480#", :large => "500x500>" }, :processors => [:cropper]
   validates_attachment_content_type :cover, :content_type => /\Aimage/
+  validates_attachment :cover, :size => { :in => 0..4.kilobytes }
   
 end

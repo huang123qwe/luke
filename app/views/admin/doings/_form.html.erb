@@ -9,7 +9,7 @@
 <%= simple_form_for [:admin, @doing], :defaults => { :input_html => { :class => "form-control" } }, html: { multipart: true, class: 'form-horizontal' } do |f| %>  
   <%= f.input :position, collection: Doing.positions, label: "位置" %>  
   <%= f.input :name, label: "名称" %> 
-  <%= f.input :cover, :input_html => { :class => "btn btn-default" }, label: "图片"  %>  
+  <%= f.input :cover, :input_html => { :class => "btn btn-default" }, label: "图片", hint: "图片大小必须小于4M, 左右焦点图宽高比为421x480，视频图片410x470，广告图片1290x480"  %>  
   <%= f.input :video, :input_html => { :class => "btn btn-default" }, label: "视频"  %>  
   <%= f.input :video_type, collection: Doing.video_types, label: "视频类型"  %> 
   <%= f.input :src, label: "链接"  %>
