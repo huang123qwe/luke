@@ -22,3 +22,4 @@
 //= require modal.js
 //= require bootstrap-transition.js
 //= require bootstrap-tab.js
+//= require bootstrap-hover-dropdown.js

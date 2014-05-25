@@ -19,7 +19,11 @@ Luke::Application.routes.draw do
   get "sign_up", to: "registrations#create"
   get "about", to: "welcome#about"
 
-  resources :articles, only: [:show, :index]
+  resources :articles, only: [:show, :index] do
+    collection do
+      get :list
+    end
+  end
   resources :products, only: [:show, :index]
   resources :orders, only: [:new, :create]
 

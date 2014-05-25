@@ -10,6 +10,13 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  def list
+    @articles = Article
+    @articles = @articles.where(category: params[:category]) if params[:category]
+    @articles = @articles.where("tags like ? or tags like ? or tags = ?","%,#{params[:tag]},%","%,#{params[:tag]}",params[:tag])
+    @articles = @articles.all
+  end
+
   private
 
     def set_article
