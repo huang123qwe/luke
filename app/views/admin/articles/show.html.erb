@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>tags:</strong>
+  <%= @article.tags %>
+</p>
+
+<p>
   <strong>封面:</strong>
   <%= image_tag @article.cover.url(:small) if @article.cover %>
 </p>

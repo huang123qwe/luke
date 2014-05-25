@@ -6,7 +6,8 @@
 <%= simple_form_for [:admin, @article], :defaults => { :input_html => { :class => "form-control" } }, html: { multipart: true, class: 'form-horizontal' } do |f| %> 
 
   <%= f.input :title, label: "标题" %>
-  <%= f.input :category, label: "类别", collection: Article::CATEGORIES %>
+  <%= f.input :category, label: "类别", collection: Article::CATEGORIES, input_html: { :onchange => "tags(this.value)"} %>
+  <%= f.input :tags, label: "标签" %>
   <%= f.input :cover, label: "封面", hint: "图片大小必须小于500k, 宽高比为330x175" %>
   <%= f.input :top, label: "置顶", :input_html => { class: "" } %>
   <%= f.input :top_cover, label: "置顶图片", hint: "图片大小必须小于800k, 宽高比为630x260" %>
@@ -15,6 +16,19 @@
 
   <%= f.button :wrapped, value: "commit" %>  
 <% end %>
+<% tags = Category.where(name: @article.category).first.try(:tags).to_s.split(/[,]/).uniq.compact %>
 <%= javascript_tag do %>
   $('#article_product_ids').select2();
+
+  $('#article_tags').select2({maximumSelectionSize: 3,
+                              multiple: true,
+                              tags: <%= tags.to_s.html_safe %> });
+
+  function tags(category) {  
+    jQuery.ajax({
+      url: "/admin/articles/tags",
+      type: "GET",
+      data: {"category" : category},
+    });
+  }
 <% end %>

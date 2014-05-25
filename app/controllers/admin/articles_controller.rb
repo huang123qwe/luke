@@ -110,6 +110,12 @@ class Admin::ArticlesController < AdminController
     end
   end
 
+  def tags
+    category = Category.where(name: params[:category]).first
+    @tags = category.try(:tags).to_s.split(/[,]/).uniq.compact
+    logger.info @tags.inspect
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -118,6 +124,6 @@ class Admin::ArticlesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :category, :cover, :content, :top, :top_cover, :crop_x, :crop_y, :crop_w, :crop_h)
+      params.require(:article).permit(:title, :category, :tags, :cover, :content, :top, :top_cover, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 end

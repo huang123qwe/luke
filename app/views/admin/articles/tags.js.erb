@@ -1,0 +1,8 @@
+$('#article_tags').select2({maximumSelectionSize: 3,
+                            multiple: true,
+                            initSelection: function(element, callback) {                   
+          									},
+                            tags: <%= @tags.to_s.html_safe %>,
+                            val: ""
+                          });
+$("#article_tags").select2("val", "");
